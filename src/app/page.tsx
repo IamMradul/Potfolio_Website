@@ -114,13 +114,14 @@ const achievements = [
 
 export default function Home() {
   return (
-    <div className="flex min-h-dvh flex-col">
+    <div className="flex min-h-dvh flex-col bg-background">
+      <div className="absolute top-0 z-[-2] h-screen w-full bg-background bg-[radial-gradient(ellipse_80%_80%_at_50%_-20%,rgba(120,119,198,0.3),rgba(255,255,255,0))]"></div>
       <Header />
       <main className="flex-1">
         <section id="home" className="w-full py-20 md:py-32 lg:py-40">
           <div className="container px-4 md:px-6">
             <div className="grid items-center gap-6 lg:grid-cols-[1fr_auto] lg:gap-12">
-              <div className="flex flex-col justify-center space-y-4">
+              <div className="flex flex-col justify-center space-y-4 text-center lg:text-left">
                 <div className="space-y-2">
                   <h1 className="text-3xl font-bold tracking-tighter sm:text-5xl xl:text-6xl/none">
                     Mradul Gupta
@@ -128,11 +129,11 @@ export default function Home() {
                   <p className="text-xl text-primary font-medium">
                     CSE Engineer & Full-Stack Developer
                   </p>
-                  <p className="max-w-[600px] text-muted-foreground md:text-xl">
+                  <p className="max-w-[600px] text-muted-foreground md:text-xl mx-auto lg:mx-0">
                     A passionate computer science student with a knack for building elegant and efficient software solutions. Eager to leverage my skills in a challenging internship role.
                   </p>
                 </div>
-                <div className="flex flex-col gap-2 min-[400px]:flex-row">
+                <div className="flex flex-col gap-2 min-[400px]:flex-row justify-center lg:justify-start">
                   <Button asChild size="lg">
                     <a href="#contact">Contact Me</a>
                   </Button>
@@ -155,7 +156,7 @@ export default function Home() {
           </div>
         </section>
 
-        <section id="experience" className="w-full bg-muted/40 py-12 md:py-24 lg:py-32">
+        <section id="experience" className="w-full bg-background/50 py-12 md:py-24 lg:py-32">
           <div className="container px-4 md:px-6">
             <div className="flex flex-col items-center justify-center space-y-4 text-center">
               <div className="space-y-2">
@@ -238,7 +239,7 @@ export default function Home() {
           </div>
         </section>
 
-        <section id="skills" className="w-full bg-muted/40 py-12 md:py-24 lg:py-32">
+        <section id="skills" className="w-full bg-background/50 py-12 md:py-24 lg:py-32">
           <div className="container px-4 md:px-6">
             <div className="flex flex-col items-center justify-center space-y-4 text-center">
               <div className="space-y-2">

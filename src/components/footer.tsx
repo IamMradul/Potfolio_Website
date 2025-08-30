@@ -14,21 +14,21 @@ export function Footer() {
           </p>
         </div>
         <div className="flex gap-4">
-          <Link href="mailto:mradul.gupta.cse22@ggsipu.ac.in" target="_blank" rel="noopener noreferrer" aria-label="Email">
-             <Button variant="outline" size="icon">
+          <Button variant="outline" size="icon" asChild>
+            <Link href="mailto:mradul.gupta.cse22@ggsipu.ac.in" target="_blank" rel="noopener noreferrer" aria-label="Email">
                 <Mail className="h-5 w-5" />
-            </Button>
-          </Link>
-          <Link href="https://www.linkedin.com/in/mradul-gupta-034852258/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
-             <Button variant="outline" size="icon">
+            </Link>
+          </Button>
+          <Button variant="outline" size="icon" asChild>
+            <Link href="https://www.linkedin.com/in/mradul-gupta-034852258/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
                 <Linkedin className="h-5 w-5" />
-            </Button>
-          </Link>
-          <Link href="https://github.com/mradul2004" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
-             <Button variant="outline" size="icon">
+            </Link>
+          </Button>
+          <Button variant="outline" size="icon" asChild>
+            <Link href="https://github.com/mradul2004" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
                 <Github className="h-5 w-5" />
-            </Button>
-          </Link>
+            </Link>
+          </Button>
         </div>
         <p className="text-sm text-muted-foreground">
           © {year} Mradul Gupta. All rights reserved.
