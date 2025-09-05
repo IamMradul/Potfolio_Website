@@ -15,17 +15,25 @@ export function Footer() {
         </div>
         <div className="flex gap-4">
           <Button variant="outline" size="icon" asChild>
-            <Link href="mailto:mradul.gupta.cse22@ggsipu.ac.in" target="_blank" rel="noopener noreferrer" aria-label="Email">
-                <Mail className="h-5 w-5" />
-            </Link>
-          </Button>
+  <a
+    href="https://mail.google.com/mail/?view=cm&fs=1&to=mradulg306@gmail.com&su=Hello%20Mradul&body=I%20would%20like%20to%20connect%20with%20you."
+    target="_blank"
+    rel="noopener noreferrer"
+    aria-label="Email"
+  >
+    <Mail className="h-5 w-5" />
+  </a>
+</Button>
+
+
+
           <Button variant="outline" size="icon" asChild>
-            <Link href="https://www.linkedin.com/in/mradul-gupta-034852258/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+            <Link href="https://www.linkedin.com/in/mradul-gupta-033438332" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
                 <Linkedin className="h-5 w-5" />
             </Link>
           </Button>
           <Button variant="outline" size="icon" asChild>
-            <Link href="https://github.com/mradul2004" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+            <Link href="https://github.com/IamMradul" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
                 <Github className="h-5 w-5" />
             </Link>
           </Button>
