@@ -96,6 +96,11 @@ const achievements = [
     icon: <Award className="h-4 w-4 text-muted-foreground" />,
   },
   {
+    title: "Finalist – Google Gen Ai Exchange Hackathon",
+    description: "Reached the finals in a Google Gen Ai Exchange hackathon event.",
+    icon: <Star className="h-4 w-4 text-muted-foreground" />,
+  },
+  {
     title: "Finalist – Zinnovaatio Hackathon",
     description: "Reached the finals in a national-level hackathon event.",
     icon: <Star className="h-4 w-4 text-muted-foreground" />,
@@ -134,7 +139,6 @@ export default function Home() {
                 <div className="space-y-2">
                   <h1 className="text-3xl font-bold tracking-tighter sm:text-5xl xl:text-6xl/none">Mradul Gupta</h1>
                   <div className="flex flex-wrap gap-4 items-center mt-2">
-                    <a href="tel:+919305343135" className="text-primary font-medium flex items-center gap-1"><PhoneCallIcon className="h-4 w-4" /> +91-9305343135</a>
                     <a href="mailto:mradul306@gmail.com" className="text-primary font-medium flex items-center gap-1"><Mail className="h-4 w-4" /> mradul306@gmail.com</a>
                     <a href="https://www.linkedin.com/in/mradul-gupta-033438332" target="_blank" rel="noopener noreferrer" className="text-primary font-medium flex items-center gap-1"><Linkedin className="h-4 w-4" /> LinkedIn</a>
                     <a href="https://github.com/iamMradul" target="_blank" rel="noopener noreferrer" className="text-primary font-medium flex items-center gap-1"><Github className="h-4 w-4" /> GitHub</a>
@@ -153,7 +157,7 @@ export default function Home() {
                 </div>
               </div>
               <div className="flex flex-col items-center justify-center">
-                <Avatar className="h-48 w-48 lg:h-72 lg:w-72 shadow-xl border-4 border-primary/30">
+              <Avatar className="h-64 w-64 lg:h-96 lg:w-96 shadow-xl border-4 border-primary/30 transition-transform duration-300 hover:scale-105 hover:shadow-2xl">
                   <AvatarImage src="/Mradul_Photo.jpg" data-ai-hint="professional portrait" alt="Mradul Gupta" />
                   <AvatarFallback className="text-3xl font-bold">MG</AvatarFallback>
                 </Avatar>
@@ -223,7 +227,7 @@ export default function Home() {
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 20h5v-2a4 4 0 00-5-4M9 20H4v-2a4 4 0 015-4m8-6a4 4 0 11-8 0 4 4 0 018 0z" />
                     </svg>
                   </div>
-                  <div className="mb-2 font-semibold text-primary">Core Team Applicant, Google Developer Groups</div>
+                  <div className="mb-2 font-semibold text-primary">Core Team Member, Google Developer Groups</div>
                   <div className="text-muted-foreground text-sm">
                     Contributing to tech community growth through workshops, hackathons, and collaborative events.
                   </div>
