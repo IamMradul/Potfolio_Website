@@ -33,9 +33,9 @@ import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 
 const experiences = [
   {
-    role: "Intern – Cohatch",
-    company: "Cohatch",
-    period: "Jun 2025 – Sep 2025",
+    role: "Intern",
+    company: "Co Hatch",
+    period: "Jun '25 – Sep '25",
     description:
       "Assisted in backend development and system security analysis for internal tools. Gained hands-on experience with Flask APIs, Git version control, and debugging production environments. Collaborated with the engineering team to improve platform reliability and security practices.",
     technologies: ["Flask", "Git", "APIs", "Security"],
@@ -73,8 +73,11 @@ const projects = [
 ];
 
 const skills = {
-  languages: ["Python", "Java", "C++", "C"],
-  devTools: ["FastAPI", "Git", "SQLite", "OpenCV", "MediaPipe", "scikit-learn", "pandas", "Linux", "Postman"],
+  languages: ["C++", "Python", "JAVA", "JavaScript", "TypeScript", "C"],
+  frameworks: ["Next.js", "React", "Flask", "FastAPI"],
+  aiMl: ["Machine Learning", "NLP", "OpenCV", "MediaPipe", "scikit-learn", "pandas"],
+  databases: ["Supabase", "PostgreSQL", "SQLite"],
+  tools: ["Git", "GitHub", "Linux", "Vercel", "Postman"],
   concepts: ["Cybersecurity", "Machine Learning", "Image Processing", "OOP"],
   interpersonal: ["Leadership", "Public Speaking", "Collaboration", "Time Management"],
 };
@@ -91,23 +94,31 @@ const education = [
 
 const achievements = [
   {
-    title: "2nd Rank – University Coding Competition",
-    description: "Secured 2nd place in a competitive coding event at Chandigarh University.",
+    title: "Finalist – Google Gen AI Exchange Hackathon",
+    description: "Recognized among top-performing teams nationwide for innovative AI solutions and technical excellence.",
+    icon: <Star className="h-4 w-4 text-muted-foreground" />,
+  },
+  {
+    title: "Winner – Zinnovatio Hackathon",
+    description: "Awarded first place for innovative problem-solving and exceptional technical execution in a competitive hackathon environment.",
     icon: <Award className="h-4 w-4 text-muted-foreground" />,
   },
   {
-    title: "Finalist – Google Gen Ai Exchange Hackathon",
-    description: "Reached the finals in a Google Gen Ai Exchange hackathon event.",
-    icon: <Star className="h-4 w-4 text-muted-foreground" />,
+    title: "2nd Position – University Coding Competition",
+    description: "Secured second place demonstrating strong algorithmic thinking, problem-solving skills, and coding proficiency.",
+    icon: <Award className="h-4 w-4 text-muted-foreground" />,
+  },
+];
+
+const publications = [
+  {
+    title: "Advanced Fake News Detection Using Machine Learning Techniques",
+    description: "Published research paper at the International Conference on Intelligent and Secure Engineering Solutions (CISES 2025). Presented innovative ML approaches for automated misinformation detection.",
+    icon: <BookOpen className="h-4 w-4 text-muted-foreground" />,
   },
   {
-    title: "Finalist – Zinnovaatio Hackathon",
-    description: "Reached the finals in a national-level hackathon event.",
-    icon: <Star className="h-4 w-4 text-muted-foreground" />,
-  },
-  {
-    title: "Publication: 'Advanced Fake News Detection'",
-    description: "Published at the 3rd International Conference on Intelligent and Secure Engineering Solutions (CISES 2025).",
+    title: "Patent Filed: Kalaamitra – AI-Powered E-Commerce Platform",
+    description: "Filed patent for Web-Based AI E-Commerce System featuring semantic search, vector embeddings, and AI-based product recommendations.",
     icon: <BookOpen className="h-4 w-4 text-muted-foreground" />,
   },
 ];
@@ -139,9 +150,9 @@ export default function Home() {
                 <div className="space-y-2">
                   <h1 className="text-3xl font-bold tracking-tighter sm:text-5xl xl:text-6xl/none">Mradul Gupta</h1>
                   <div className="flex flex-wrap gap-4 items-center mt-2">
-                    <a href="mailto:mradul306@gmail.com" className="text-primary font-medium flex items-center gap-1"><Mail className="h-4 w-4" /> mradul306@gmail.com</a>
-                    <a href="https://www.linkedin.com/in/mradul-gupta-033438332" target="_blank" rel="noopener noreferrer" className="text-primary font-medium flex items-center gap-1"><Linkedin className="h-4 w-4" /> LinkedIn</a>
-                    <a href="https://github.com/iamMradul" target="_blank" rel="noopener noreferrer" className="text-primary font-medium flex items-center gap-1"><Github className="h-4 w-4" /> GitHub</a>
+                    <a href="mailto:mradulg306@gmail.com" className="text-primary font-medium flex items-center gap-1"><Mail className="h-4 w-4" /> mradulg306@gmail.com</a>
+                    <a href="https://www.linkedin.com/in/mradul-gupta26" target="_blank" rel="noopener noreferrer" className="text-primary font-medium flex items-center gap-1"><Linkedin className="h-4 w-4" /> LinkedIn</a>
+                    <a href="https://github.com/IamMradul" target="_blank" rel="noopener noreferrer" className="text-primary font-medium flex items-center gap-1"><Github className="h-4 w-4" /> GitHub</a>
                   </div>
                   <p className="max-w-xl text-muted-foreground md:text-xl mt-4 leading-relaxed">
                     Motivated and fast-learning Computer Science student with strong foundations in Python, backend development, and cybersecurity. Proven experience in building real-time gesture authentication systems, chatbots, and ML pipelines. Seeking internship opportunities in Cybersecurity, AI/ML, or Backend Development to apply my skills in solving real-world problems.
@@ -337,24 +348,24 @@ export default function Home() {
     <div className="mx-auto grid gap-6 py-12 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
       {[
         {
-          title: "Gesture-Based CAPTCHA",
-          description: "A web-based CAPTCHA system that uses computer vision and pose detection to verify human users through gesture recognition.",
+          title: "Gesture-Based CAPTCHA System",
+          description: "Designed a real-time gesture-based CAPTCHA system using MediaPipe, OpenCV, and Flask, achieving ~98% gesture detection accuracy. Implemented pose estimation and head-orientation-based liveness verification to prevent bot attacks and improve authentication security.",
           image: "/images/gesture-captcha.png",
           technologies: ["Flask", "OpenCV", "MediaPipe", "SQLite"],
           link: "https://github.com/IamMradul/Gesture-Based-CAPTCHA-System"
         },
         {
-          title: "Fake News Detection",
-          description: "A machine learning system to detect fake news using advanced NLP techniques and ensemble models.",
+          title: "Advanced Fake News Detection System",
+          description: "Built an end-to-end machine learning and NLP pipeline to classify news as real or fake with high accuracy using advanced text preprocessing and feature extraction. Evaluated and optimized models using precision, recall, and F1-score, delivering a scalable solution for automated misinformation detection.",
           image: "/images/fake-news.png",
-          technologies: ["Python", "Scikit-Learn", "NLP", "Flask"],
+          technologies: ["Python", "Machine Learning", "NLP", "Flask"],
           link: "https://github.com/IamMradul/Advance-Fake-News-Detection"
         },
         {
-          title: "E-commerce Website",
-          description: "A complete MVP web application that connects artisans with art lovers through a beautiful, culturally-inspired marketplace.",
+          title: "Kalaamitra – AI-Powered E-Commerce Platform",
+          description: "Developed a full-stack AI-driven e-commerce platform using Next.js, TypeScript, and Supabase, focused on scalability and performance. Integrated semantic search, vector embeddings, and AI-based product recommendations to enhance product discovery and user engagement.",
           image: "/images/KalaMitra.png",
-          technologies: ["TypeScript", "TailwindCSS", "JavaScript"],
+          technologies: ["Next.js", "TypeScript", "Supabase", "AI/ML"],
           link: "https://github.com/IamMradul/KalaaMitra"
         },
         {
@@ -413,14 +424,26 @@ export default function Home() {
             </div>
             <div className="mx-auto max-w-5xl py-12">
               <Card className="transition-transform duration-300 hover:scale-105 hover:shadow-2xl">
-                <CardContent className="grid gap-6 p-6 md:grid-cols-2">
+                <CardContent className="grid gap-6 p-6 md:grid-cols-2 lg:grid-cols-3">
                   <div>
                     <h3 className="mb-3 text-lg font-semibold">Programming Languages</h3>
                     <div className="flex flex-wrap gap-2">{skills.languages.map((skill) => (<Badge key={skill}>{skill}</Badge>))}</div>
                   </div>
                   <div>
+                    <h3 className="mb-3 text-lg font-semibold">Frameworks</h3>
+                    <div className="flex flex-wrap gap-2">{skills.frameworks.map((framework) => (<Badge key={framework}>{framework}</Badge>))}</div>
+                  </div>
+                  <div>
+                    <h3 className="mb-3 text-lg font-semibold">AI/ML</h3>
+                    <div className="flex flex-wrap gap-2">{skills.aiMl.map((tech) => (<Badge key={tech}>{tech}</Badge>))}</div>
+                  </div>
+                  <div>
+                    <h3 className="mb-3 text-lg font-semibold">Databases</h3>
+                    <div className="flex flex-wrap gap-2">{skills.databases.map((db) => (<Badge key={db}>{db}</Badge>))}</div>
+                  </div>
+                  <div>
                     <h3 className="mb-3 text-lg font-semibold">Development Tools</h3>
-                    <div className="flex flex-wrap gap-2">{skills.devTools.map((tool) => (<Badge key={tool}>{tool}</Badge>))}</div>
+                    <div className="flex flex-wrap gap-2">{skills.tools.map((tool) => (<Badge key={tool}>{tool}</Badge>))}</div>
                   </div>
                   <div>
                     <h3 className="mb-3 text-lg font-semibold">Technical Concepts</h3>
@@ -447,37 +470,37 @@ export default function Home() {
       </div>
     </div>
 
-    <div className="mx-auto grid max-w-5xl gap-8 py-12 lg:grid-cols-2">
+    <div className="mx-auto grid max-w-5xl gap-8 py-12 lg:grid-cols-[auto_1fr]">
       {/* Education Card */}
-      <Card>
+      <Card className="h-fit">
         <CardHeader>
           <CardTitle className="flex items-center gap-2"><GraduationCap /> Education</CardTitle>
         </CardHeader>
-        <CardContent>
+        <CardContent className="space-y-6">
           {[
             {
               institution: "Lucknow Public School",
               degree: "Class 10 (CBSE)",
-              period: "2022",
-              details: "Scored 90.6% in CBSE Board Examination."
+              period: "2021 – 2022",
+              details: "Completed Class 10 from Lucknow Public School."
             },
             {
               institution: "Lucknow Public School",
               degree: "Class 12 (CBSE)",
-              period: "2024",
-              details: "Scored 85.9% in CBSE Board Examination."
+              period: "2023 – 2024",
+              details: "Completed Class 12 from Lucknow Public School."
             },
             {
-              institution: "Chandigarh University",
-              degree: "B.E. in Computer Science and Engineering",
-              period: "2024 - 2028",
-              details: "Currently pursuing 2nd year. First-year CGPA: 8.67 (86.7%)."
+              institution: "Chandigarh University, Mohali, India",
+              degree: "Bachelor of Engineering (B.E.) in Computer Science and Engineering",
+              period: "2024 – 2028",
+              details: "Currently pursuing Bachelor's degree in Computer Science and Engineering."
             }
           ].map((edu, index) => (
-            <div key={index} className="mb-4">
-              <h3 className="font-semibold">{edu.institution}</h3>
+            <div key={index} className={index < 2 ? "pb-4 border-b border-border/40" : ""}>
+              <h3 className="font-semibold mb-1">{edu.institution}</h3>
               <p className="text-sm text-muted-foreground">{edu.degree}</p>
-              <p className="mb-2 text-sm text-muted-foreground">{edu.period}</p>
+              <p className="text-sm text-muted-foreground mb-2">{edu.period}</p>
               <p className="text-sm">{edu.details}</p>
             </div>
           ))}
@@ -487,18 +510,41 @@ export default function Home() {
       {/* Achievements & Publications Card */}
       <Card>
         <CardHeader>
-          <CardTitle className="flex items-center gap-2"><Award /> Achievements & Publication</CardTitle>
+          <CardTitle className="flex items-center gap-2"><Award /> Achievements & Publications</CardTitle>
         </CardHeader>
-        <CardContent className="space-y-4">
-          {achievements.map((ach, index) => (
-            <div key={index} className="flex items-start gap-4">
-              {ach.icon}
-              <div>
-                <h3 className="font-semibold">{ach.title}</h3>
-                <p className="text-sm text-muted-foreground">{ach.description}</p>
-              </div>
+        <CardContent className="space-y-6">
+          <div>
+            <h3 className="mb-3 text-lg font-semibold flex items-center gap-2">
+              <Award className="h-4 w-4" /> Achievements
+            </h3>
+            <div className="space-y-4">
+              {achievements.map((ach, index) => (
+                <div key={index} className="flex items-start gap-4">
+                  {ach.icon}
+                  <div>
+                    <h4 className="font-semibold">{ach.title}</h4>
+                    <p className="text-sm text-muted-foreground">{ach.description}</p>
+                  </div>
+                </div>
+              ))}
             </div>
-          ))}
+          </div>
+          <div className="border-t pt-4">
+            <h3 className="mb-3 text-lg font-semibold flex items-center gap-2">
+              <BookOpen className="h-4 w-4" /> Publications & Patents
+            </h3>
+            <div className="space-y-4">
+              {publications.map((pub, index) => (
+                <div key={index} className="flex items-start gap-4">
+                  {pub.icon}
+                  <div>
+                    <h4 className="font-semibold">{pub.title}</h4>
+                    <p className="text-sm text-muted-foreground">{pub.description}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
         </CardContent>
       </Card>
     </div>
@@ -511,7 +557,7 @@ export default function Home() {
             <div className="flex flex-col items-center justify-center space-y-4 text-center">
               <div className="space-y-2">
                 <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl">Summary</h2>
-                <p className="max-w-[900px] text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">Second-year B.E. Computer Science student at Chandigarh University with a strong interest in Cybersecurity, Machine Learning, and Backend Development. Skilled in Python, FastAPI, and OpenCV, with hands-on experience building gesture-based authentication systems, multilingual legal chatbots, and fake news detection models.</p>
+                <p className="max-w-[900px] text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">Motivated and fast-learning Computer Science student with strong foundations in Python, backend development, and cybersecurity. Proven experience in building real-time gesture authentication systems, chatbots, and ML pipelines. Seeking internship opportunities in Cybersecurity, AI/ML, or Backend Development to apply my skills in solving real-world problems.</p>
               </div>
             </div>
           </div>
