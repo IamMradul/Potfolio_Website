@@ -32,6 +32,14 @@ export const CardSpotlight = ({
   const handleMouseEnter = () => setIsHovering(true);
   const handleMouseLeave = () => setIsHovering(false);
 
+  const background = useMotionTemplate`
+    radial-gradient(
+      ${radius}px circle at ${mouseX}px ${mouseY}px,
+      ${color}20,
+      transparent 80%
+    )
+  `;
+
   return (
     <div
       className={cn(
@@ -45,15 +53,7 @@ export const CardSpotlight = ({
     >
       <motion.div
         className="pointer-events-none absolute z-0 -inset-px rounded-xl opacity-0 transition duration-300 group-hover/spotlight:opacity-100"
-        style={{
-          background: useMotionTemplate`
-            radial-gradient(
-              ${radius}px circle at ${mouseX}px ${mouseY}px,
-              ${color}20,
-              transparent 80%
-            )
-          `,
-        }}
+        style={{ background }}
       />
       <div className="relative z-10">{children}</div>
     </div>
