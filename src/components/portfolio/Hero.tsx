@@ -3,6 +3,8 @@ import { Mail, Linkedin, Github, Download, ChevronDown } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import profilePhoto from "@/assets/profile-photo.jpg";
 import Particles from "@/components/ui/Particles";
+import BlurText from "@/components/ui/blur-text";
+import EncryptedText from "@/components/ui/encrypted-text";
 
 const Hero = () => {
   const scrollToContact = () => {
@@ -50,24 +52,21 @@ const Hero = () => {
               🔐 Cybersecurity Enthusiast
             </motion.div>
 
-            <motion.h1
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.3 }}
-              className="text-4xl md:text-5xl lg:text-6xl font-bold text-foreground mb-4"
-            >
-              Hi, I'm{" "}
-              <span className="gradient-text">Mradul Gupta</span>
-            </motion.h1>
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-foreground mb-4">
+              <BlurText text="Hi, I'm" delay={0.3} />
+              {" "}
+              <span className="gradient-text">
+                <BlurText text="Mradul Gupta" delay={0.6} />
+              </span>
+            </h1>
 
-            <motion.h2
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.4 }}
-              className="text-xl md:text-2xl text-muted-foreground mb-6"
-            >
-              Cybersecurity Intern | Backend & Security Engineering
-            </motion.h2>
+            <h2 className="text-xl md:text-2xl text-muted-foreground mb-6">
+              <EncryptedText
+                text="Cybersecurity Intern | Backend & Security Engineering"
+                speed={40}
+                delay={800}
+              />
+            </h2>
 
             <motion.p
               initial={{ opacity: 0, y: 20 }}
