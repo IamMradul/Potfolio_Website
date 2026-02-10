@@ -9,10 +9,12 @@ import Extracurriculars from "@/components/portfolio/Extracurriculars";
 import Contact from "@/components/portfolio/Contact";
 import Footer from "@/components/portfolio/Footer";
 import DockNavigation from "@/components/portfolio/DockNavigation";
+import ThemeToggle from "@/components/portfolio/ThemeToggle";
 
 const Index = () => {
   return (
     <main className="relative">
+      <ThemeToggle />
       <Hero />
       <About />
       <Experience />

@@ -2,6 +2,7 @@ import { motion } from "framer-motion";
 import { Mail, Linkedin, Github, Download, ChevronDown } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import profilePhoto from "@/assets/profile-photo.jpg";
+import Particles from "@/components/ui/Particles";
 
 const Hero = () => {
   const scrollToContact = () => {
@@ -15,9 +16,23 @@ const Hero = () => {
   return (
     <section
       id="hero"
-      className="min-h-screen flex items-center justify-center relative bg-gradient-to-br from-background via-background to-secondary/30"
+      className="min-h-screen flex items-center justify-center relative bg-gradient-to-br from-background via-background to-secondary/30 overflow-hidden"
     >
-      <div className="section-container py-20">
+      {/* Particles Background */}
+      <div className="absolute inset-0 z-0">
+        <Particles
+          particleColors={["#1d4ed8", "#0ea5e9", "#10b981"]}
+          particleCount={400}
+          particleSpread={10}
+          speed={0.1}
+          particleBaseSize={100}
+          moveParticlesOnHover
+          alphaParticles={false}
+          disableRotation={false}
+          pixelRatio={1}
+        />
+      </div>
+      <div className="section-container py-20 relative z-10">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           {/* Text Content */}
           <motion.div
