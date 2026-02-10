@@ -2,7 +2,6 @@ import { motion } from "framer-motion";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 import { Badge } from "@/components/ui/badge";
 import { Shield, Code, Layers, Brain, Database, Wrench } from "lucide-react";
-import AnimatedSkillBar from "@/components/ui/animated-skill-bar";
 
 const skillCategories = [
   {
@@ -55,15 +54,6 @@ const skillCategories = [
   },
 ];
 
-const topSkills = [
-  { name: "Python", level: 90, color: "bg-primary" },
-  { name: "Cybersecurity", level: 85, color: "bg-cyber" },
-  { name: "Machine Learning", level: 80, color: "bg-purple-500" },
-  { name: "React / Next.js", level: 78, color: "bg-accent" },
-  { name: "Backend (Flask/Node)", level: 82, color: "bg-orange-500" },
-  { name: "Database Design", level: 75, color: "bg-emerald-500" },
-];
-
 const Skills = () => {
   const { ref, isVisible } = useScrollAnimation();
 
@@ -83,28 +73,6 @@ const Skills = () => {
           </p>
         </motion.div>
 
-        {/* Animated Skill Bars */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={isVisible ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.5, delay: 0.1 }}
-          className="max-w-2xl mx-auto mb-16 bg-card rounded-xl p-6 border border-border shadow-md"
-        >
-          <h3 className="text-lg font-semibold text-foreground mb-6">Proficiency Overview</h3>
-          <div className="space-y-4">
-            {topSkills.map((skill, i) => (
-              <AnimatedSkillBar
-                key={skill.name}
-                name={skill.name}
-                level={skill.level}
-                color={skill.color}
-                delay={0.2 + i * 0.1}
-              />
-            ))}
-          </div>
-        </motion.div>
-
-        {/* Skill Category Cards */}
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
           {skillCategories.map((category, index) => (
             <motion.div
@@ -137,24 +105,18 @@ const Skills = () => {
               </div>
 
               <div className="flex flex-wrap gap-2">
-                {category.skills.map((skill, skillIdx) => (
-                  <motion.div
+                {category.skills.map((skill) => (
+                  <Badge
                     key={skill}
-                    initial={{ opacity: 0, scale: 0.8 }}
-                    animate={isVisible ? { opacity: 1, scale: 1 } : {}}
-                    transition={{ duration: 0.3, delay: 0.3 + index * 0.1 + skillIdx * 0.03 }}
+                    variant={category.highlight ? "default" : "secondary"}
+                    className={`text-xs ${
+                      category.highlight
+                        ? "bg-cyber/10 text-cyber hover:bg-cyber/20 border border-cyber/20"
+                        : ""
+                    }`}
                   >
-                    <Badge
-                      variant={category.highlight ? "default" : "secondary"}
-                      className={`text-xs ${
-                        category.highlight
-                          ? "bg-cyber/10 text-cyber hover:bg-cyber/20 border border-cyber/20"
-                          : ""
-                      }`}
-                    >
-                      {skill}
-                    </Badge>
-                  </motion.div>
+                    {skill}
+                  </Badge>
                 ))}
               </div>
             </motion.div>

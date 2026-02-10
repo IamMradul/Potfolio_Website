@@ -1,8 +1,8 @@
 import { motion } from "framer-motion";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
+import { CardContainer, CardBody, CardItem } from "@/components/ui/3d-card";
 import { Badge } from "@/components/ui/badge";
 import { Github, Shield, Brain, ShoppingCart, Newspaper, Bot } from "lucide-react";
-import { FocusCard, useFocusCards } from "@/components/ui/focus-cards";
 import projectCaptcha from "@/assets/project-captcha.jpg";
 import projectFakenews from "@/assets/project-fakenews.jpg";
 import projectKalaamitra from "@/assets/project-kalaamitra.jpg";
@@ -72,13 +72,117 @@ const getCategoryColor = (category: string) => {
   return colors[category] || "bg-secondary text-secondary-foreground";
 };
 
+const FeaturedProjectCard = ({ project, index, isVisible }: { project: typeof projects[0]; index: number; isVisible: boolean }) => (
+  <motion.div
+    key={project.title}
+    initial={{ opacity: 0, y: 30 }}
+    animate={isVisible ? { opacity: 1, y: 0 } : {}}
+    transition={{ duration: 0.5, delay: 0.2 + index * 0.1 }}
+  >
+    <CardContainer containerClassName="py-4">
+      <CardBody className="bg-card relative group/card border border-border rounded-xl overflow-hidden h-auto w-full">
+        {/* Project Image */}
+        {'image' in project && project.image && (
+          <CardItem translateZ={30} className="w-full">
+            <div className="h-40 overflow-hidden">
+              <img
+                src={project.image}
+                alt={project.title}
+                className="w-full h-full object-cover group-hover/card:scale-105 transition-transform duration-500"
+              />
+            </div>
+          </CardItem>
+        )}
+
+        <div className="p-6">
+          <CardItem translateZ={50} className="w-full">
+            <div className="flex items-center justify-between mb-4">
+              <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center">
+                <project.icon className="h-5 w-5 text-primary" />
+              </div>
+              <span className={`px-3 py-1 rounded-full text-xs font-medium border ${getCategoryColor(project.category)}`}>
+                {project.category}
+              </span>
+            </div>
+          </CardItem>
+
+          <CardItem translateZ={60} className="w-full">
+            <h3 className="text-lg font-bold text-foreground mb-2">{project.title}</h3>
+          </CardItem>
+
+          <CardItem translateZ={40} className="w-full">
+            <p className="text-sm text-muted-foreground mb-4 line-clamp-3">{project.description}</p>
+          </CardItem>
+
+          <CardItem translateZ={30} className="w-full">
+            <div className="flex flex-wrap gap-1.5 mb-4">
+              {project.technologies.slice(0, 4).map((tech) => (
+                <Badge key={tech} variant="secondary" className="text-xs">{tech}</Badge>
+              ))}
+              {project.technologies.length > 4 && (
+                <Badge variant="outline" className="text-xs">+{project.technologies.length - 4}</Badge>
+              )}
+            </div>
+          </CardItem>
+
+          <CardItem translateZ={70} className="w-full">
+            <a
+              href={project.github}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-1.5 text-sm text-muted-foreground hover:text-primary transition-colors"
+            >
+              <Github className="h-4 w-4" />
+              Code
+            </a>
+          </CardItem>
+        </div>
+      </CardBody>
+    </CardContainer>
+  </motion.div>
+);
+
+const OtherProjectCard = ({ project, index, isVisible }: { project: typeof projects[0]; index: number; isVisible: boolean }) => (
+  <motion.div
+    key={project.title}
+    initial={{ opacity: 0, y: 30 }}
+    animate={isVisible ? { opacity: 1, y: 0 } : {}}
+    transition={{ duration: 0.5, delay: 0.5 + index * 0.1 }}
+    className="bg-card rounded-xl p-6 shadow-md hover:shadow-lg transition-all duration-300 border border-border"
+  >
+    <div className="flex items-start gap-4">
+      <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center shrink-0">
+        <project.icon className="h-5 w-5 text-primary" />
+      </div>
+      <div className="flex-1">
+        <div className="flex items-center justify-between mb-2">
+          <h3 className="font-semibold text-foreground">{project.title}</h3>
+          <span className={`px-2 py-0.5 rounded-full text-xs font-medium border ${getCategoryColor(project.category)}`}>
+            {project.category}
+          </span>
+        </div>
+        <p className="text-sm text-muted-foreground mb-3">{project.description}</p>
+        <div className="flex flex-wrap gap-1.5 mb-3">
+          {project.technologies.map((tech) => (
+            <Badge key={tech} variant="secondary" className="text-xs">{tech}</Badge>
+          ))}
+        </div>
+        <a
+          href={project.github}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="flex items-center gap-1.5 text-sm text-muted-foreground hover:text-primary transition-colors"
+        >
+          <Github className="h-4 w-4" />
+          View Code
+        </a>
+      </div>
+    </div>
+  </motion.div>
+);
+
 const Projects = () => {
   const { ref, isVisible } = useScrollAnimation();
-  const { hoveredIndex, setHoveredIndex } = useFocusCards();
-  const { hoveredIndex: hoveredOther, setHoveredIndex: setHoveredOther } = useFocusCards();
-
-  const featured = projects.filter((p) => p.featured);
-  const other = projects.filter((p) => !p.featured);
 
   return (
     <section id="projects" className="py-24 bg-secondary/30">
@@ -96,109 +200,15 @@ const Projects = () => {
           </p>
         </motion.div>
 
-        {/* Featured Projects with Focus Cards */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
-          {featured.map((project, index) => (
-            <motion.div
-              key={project.title}
-              initial={{ opacity: 0, y: 30 }}
-              animate={isVisible ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.5, delay: 0.2 + index * 0.1 }}
-            >
-              <FocusCard
-                index={index}
-                hoveredIndex={hoveredIndex}
-                setHoveredIndex={setHoveredIndex}
-                className="bg-card border border-border overflow-hidden h-full"
-              >
-                {project.image && (
-                  <div className="h-44 overflow-hidden">
-                    <img
-                      src={project.image}
-                      alt={project.title}
-                      className="w-full h-full object-cover transition-transform duration-500 hover:scale-105"
-                    />
-                  </div>
-                )}
-                <div className="p-6">
-                  <div className="flex items-center justify-between mb-4">
-                    <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center">
-                      <project.icon className="h-5 w-5 text-primary" />
-                    </div>
-                    <span className={`px-3 py-1 rounded-full text-xs font-medium border ${getCategoryColor(project.category)}`}>
-                      {project.category}
-                    </span>
-                  </div>
-                  <h3 className="text-lg font-bold text-foreground mb-2">{project.title}</h3>
-                  <p className="text-sm text-muted-foreground mb-4 line-clamp-3">{project.description}</p>
-                  <div className="flex flex-wrap gap-1.5 mb-4">
-                    {project.technologies.slice(0, 4).map((tech) => (
-                      <Badge key={tech} variant="secondary" className="text-xs">{tech}</Badge>
-                    ))}
-                    {project.technologies.length > 4 && (
-                      <Badge variant="outline" className="text-xs">+{project.technologies.length - 4}</Badge>
-                    )}
-                  </div>
-                  <a
-                    href={project.github}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex items-center gap-1.5 text-sm text-muted-foreground hover:text-primary transition-colors"
-                  >
-                    <Github className="h-4 w-4" />
-                    Code
-                  </a>
-                </div>
-              </FocusCard>
-            </motion.div>
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4 mb-12">
+          {projects.filter((p) => p.featured).map((project, index) => (
+            <FeaturedProjectCard key={project.title} project={project} index={index} isVisible={isVisible} />
           ))}
         </div>
 
-        {/* Other Projects with Focus Cards */}
         <div className="grid md:grid-cols-2 gap-6">
-          {other.map((project, index) => (
-            <motion.div
-              key={project.title}
-              initial={{ opacity: 0, y: 30 }}
-              animate={isVisible ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.5, delay: 0.5 + index * 0.1 }}
-            >
-              <FocusCard
-                index={index}
-                hoveredIndex={hoveredOther}
-                setHoveredIndex={setHoveredOther}
-                className="bg-card border border-border p-6"
-              >
-                <div className="flex items-start gap-4">
-                  <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center shrink-0">
-                    <project.icon className="h-5 w-5 text-primary" />
-                  </div>
-                  <div className="flex-1">
-                    <div className="flex items-center justify-between mb-2">
-                      <h3 className="font-semibold text-foreground">{project.title}</h3>
-                      <span className={`px-2 py-0.5 rounded-full text-xs font-medium border ${getCategoryColor(project.category)}`}>
-                        {project.category}
-                      </span>
-                    </div>
-                    <p className="text-sm text-muted-foreground mb-3">{project.description}</p>
-                    <div className="flex flex-wrap gap-1.5 mb-3">
-                      {project.technologies.map((tech) => (
-                        <Badge key={tech} variant="secondary" className="text-xs">{tech}</Badge>
-                      ))}
-                    </div>
-                    <a
-                      href={project.github}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="flex items-center gap-1.5 text-sm text-muted-foreground hover:text-primary transition-colors"
-                    >
-                      <Github className="h-4 w-4" />
-                      View Code
-                    </a>
-                  </div>
-                </div>
-              </FocusCard>
-            </motion.div>
+          {projects.filter((p) => !p.featured).map((project, index) => (
+            <OtherProjectCard key={project.title} project={project} index={index} isVisible={isVisible} />
           ))}
         </div>
       </div>
