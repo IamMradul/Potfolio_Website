@@ -1,8 +1,7 @@
 import { motion } from "framer-motion";
-import { Mail, Linkedin, Github, Download, ChevronDown } from "lucide-react";
+import { Mail, Download, ChevronDown } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import profilePhoto from "@/assets/profile-photo.jpg";
-import Particles from "@/components/ui/Particles";
+import { useEffect } from "react";
 
 const Hero = () => {
   const scrollToContact = () => {
@@ -13,27 +12,120 @@ const Hero = () => {
     document.getElementById("about")?.scrollIntoView({ behavior: "smooth" });
   };
 
+  useEffect(() => {
+    const loadParticles = async () => {
+      // Load tsParticles from CDN
+      if (!(window as any).tsParticles) {
+        const script = document.createElement("script");
+        script.src = "https://cdn.jsdelivr.net/npm/tsparticles@2/tsparticles.bundle.min.js";
+        script.async = true;
+        script.onload = () => {
+          initParticles();
+        };
+        document.body.appendChild(script);
+      } else {
+        initParticles();
+      }
+    };
+
+    const initParticles = () => {
+      const tsParticles = (window as any).tsParticles;
+      if (tsParticles) {
+        tsParticles.load("tsparticles", {
+          background: {
+            color: "transparent",
+          },
+          particles: {
+            color: {
+              value: "#ffffff",
+            },
+            number: {
+              value: 80,
+            },
+            size: {
+              value: {
+                min: 1,
+                max: 3,
+              },
+            },
+            move: {
+              enable: true,
+              speed: 1,
+              random: true,
+              direction: "random" as const,
+            },
+            links: {
+              enable: true,
+              distance: 150,
+              color: "#ffffff",
+              opacity: 0.4,
+              width: 1,
+            },
+            opacity: {
+              value: {
+                min: 0.3,
+                max: 0.7,
+              },
+              animation: {
+                enable: true,
+                speed: 1,
+                minimumValue: 0.3,
+              },
+            },
+          },
+          interactivity: {
+            events: {
+              onHover: {
+                enable: true,
+                mode: "grab",
+              },
+              onClick: {
+                enable: true,
+                mode: "push",
+              },
+            },
+            modes: {
+              grab: {
+                distance: 140,
+                links: {
+                  opacity: 1,
+                },
+              },
+              push: {
+                quantity: 4,
+              },
+            },
+            detectsOn: "window",
+          },
+          retina_detect: true,
+        });
+      }
+    };
+
+    loadParticles();
+  }, []);
+
   return (
     <section
       id="hero"
       className="min-h-screen flex items-center justify-center relative bg-gradient-to-br from-background via-background to-secondary/30 overflow-hidden"
     >
-      {/* Particles Background */}
-      <div className="absolute inset-0 z-0">
-        <Particles
-          particleColors={["#1d4ed8", "#0ea5e9", "#10b981"]}
-          particleCount={400}
-          particleSpread={10}
-          speed={0.1}
-          particleBaseSize={100}
-          moveParticlesOnHover
-          alphaParticles={false}
-          disableRotation={false}
-          pixelRatio={1}
-        />
-      </div>
+      {/* tsParticles Canvas */}
+      <div
+        id="tsparticles"
+        className="absolute inset-0 z-0 pointer-events-none overflow-hidden"
+        style={{
+          position: "absolute",
+          top: 0,
+          left: 0,
+          width: "100%",
+          height: "100%",
+          pointerEvents: "none",
+        }}
+      />
+
       <div className="section-container py-20 relative z-10">
-        <div className="grid lg:grid-cols-2 gap-12 items-center">
+        <div className="grid lg:grid-cols-2 gap-26 lg:gap-24 items-center">
           {/* Text Content */}
           <motion.div
             initial={{ opacity: 0, x: -50 }}
@@ -47,7 +139,7 @@ const Hero = () => {
               transition={{ delay: 0.2 }}
               className="cyber-badge mb-6"
             >
-              💻 Software Developer
+            Engineer
             </motion.div>
 
             <motion.h1
@@ -66,7 +158,7 @@ const Hero = () => {
               transition={{ delay: 0.4 }}
               className="text-xl md:text-2xl text-muted-foreground mb-6"
             >
-              Software Developer | Backend Engineering & AI/ML
+            Engineering Secure & Scalable Systems
             </motion.h2>
 
             <motion.p
@@ -75,9 +167,7 @@ const Hero = () => {
               transition={{ delay: 0.5 }}
               className="text-muted-foreground text-lg mb-8 max-w-xl mx-auto lg:mx-0"
             >
-              Computer Science Engineering student with hands-on experience in
-              backend development, AI/ML solutions, and building scalable
-              systems. Passionate about creating innovative digital products.
+              Computer Science Engineering student specializing in backend systems and AI/ML solutions. Co-author of an IEEE conference paper on Fake News Detection and university rank holder in competitive coding. Passionate about building secure, scalable, and production-grade systems.
             </motion.p>
 
             {/* CTA Buttons */}
@@ -99,39 +189,7 @@ const Hero = () => {
               </Button>
             </motion.div>
 
-            {/* Social Links */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.7 }}
-              className="flex gap-4 justify-center lg:justify-start"
-            >
-              <a
-                href="mailto:mradulg306@gmail.com"
-                className="p-3 rounded-full bg-secondary hover:bg-primary hover:text-primary-foreground transition-colors duration-300"
-                aria-label="Email"
-              >
-                <Mail className="h-5 w-5" />
-              </a>
-              <a
-                href="https://www.linkedin.com/in/mradul-gupta26"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="p-3 rounded-full bg-secondary hover:bg-primary hover:text-primary-foreground transition-colors duration-300"
-                aria-label="LinkedIn"
-              >
-                <Linkedin className="h-5 w-5" />
-              </a>
-              <a
-                href="https://github.com/IamMradul"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="p-3 rounded-full bg-secondary hover:bg-primary hover:text-primary-foreground transition-colors duration-300"
-                aria-label="GitHub"
-              >
-                <Github className="h-5 w-5" />
-              </a>
-            </motion.div>
+
           </motion.div>
 
           {/* Profile Photo */}
@@ -139,12 +197,12 @@ const Hero = () => {
             initial={{ opacity: 0, scale: 0.8 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.8, delay: 0.3 }}
-            className="flex justify-center"
+            className="flex justify-end"
           >
             <div className="relative">
               <div className="w-64 h-64 md:w-80 md:h-80 rounded-full overflow-hidden border-4 border-primary/20 shadow-2xl">
                 <img
-                  src={profilePhoto}
+                  src="/ProfilePhoto.jpg"
                   alt="Mradul Gupta"
                   className="w-full h-full object-cover"
                 />

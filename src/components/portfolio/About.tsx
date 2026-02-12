@@ -20,8 +20,8 @@ const highlights = [
   },
   {
     icon: Trophy,
-    title: "Published Researcher",
-    description: "Published at CISES 2025 and filed patent for AI-powered e-commerce platform",
+    title: "Security Engineering",
+    description: "Building security systems with secure authentication, input validation, and vulnerability-aware architecture design.",
   },
 ];
 
@@ -40,8 +40,8 @@ const About = () => {
         >
           <h2 className="section-title">About Me</h2>
           <p className="section-subtitle max-w-3xl mx-auto">
-            A passionate Computer Science Engineering student dedicated to building
-            innovative and scalable digital solutions
+          Computer Science student specializing in backend systems, 
+          AI/ML pipelines, and secure architecture.
           </p>
         </motion.div>
 
@@ -56,16 +56,19 @@ const About = () => {
               Professional Summary
             </h3>
             <p className="text-muted-foreground leading-relaxed">
-              Computer Science Engineering student with hands-on experience in
-              backend development, AI/ML pipelines, and building scalable
-              systems. Skilled in creating RESTful APIs, implementing
-              authentication mechanisms, and developing intelligent solutions
-              for real-world problems.
+              Computer Science Engineering student specializing in 
+              backend systems, AI/ML pipelines, and secure architecture 
+              design. Experienced in building RESTful APIs, authentication 
+              systems, and scalable web applications using Python and modern 
+              JavaScript frameworks. Strong foundation in data structures, 
+              system design fundamentals, and performance-oriented development.
             </p>
             <p className="text-muted-foreground leading-relaxed mt-4">
-              Strong foundation in Python, JavaScript/TypeScript, and modern
-              frameworks. Seeking opportunities to contribute to impactful,
-              production-grade systems.
+              Co-author of an IEEE conference paper on AI-driven Fake News 
+              Detection and finalist of the Google Gen AI Exchange Hackathon. 
+              University rank holder in competitive coding, with a focus on 
+              building production-ready, secure, and scalable systems that 
+              solve real-world problems.
             </p>
           </motion.div>
 
@@ -79,14 +82,20 @@ const About = () => {
               What Drives Me
             </h3>
             <p className="text-muted-foreground leading-relaxed">
-              I'm fascinated by the power of technology to solve real-world
-              problems. From building AI pipelines to combat misinformation to
-              creating gesture-based authentication systems — I love tackling
-              challenging problems with creative solutions.
+              I am driven by the challenge of building systems that 
+              are not only functional but secure, scalable, and efficient. 
+              I enjoy breaking down complex problems, optimizing performance, 
+              and designing architectures that can handle real-world scale. 
+              Whether it’s backend engineering, AI/ML systems, or security-focused 
+              development, I approach every project with a focus on robustness and 
+              long-term reliability.
             </p>
             <p className="text-muted-foreground leading-relaxed mt-4">
-              I believe in writing clean, maintainable code and continuously
-              learning new technologies to stay at the forefront of innovation.
+              Continuous learning and technical depth motivate me. From 
+              competitive programming to research and hackathons, I constantly 
+              push myself to strengthen my problem-solving skills and system-level 
+              understanding. My goal is to engineer solutions that create measurable 
+              impact while maintaining high standards of code quality and security.
             </p>
           </motion.div>
         </div>

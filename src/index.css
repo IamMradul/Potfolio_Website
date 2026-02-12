@@ -202,4 +202,17 @@
   .stagger-3 { animation-delay: 0.3s; }
   .stagger-4 { animation-delay: 0.4s; }
   .stagger-5 { animation-delay: 0.5s; }
+
+  /* Ensure particles stay behind content */
+  #tsparticles {
+    z-index: 0 !important;
+    pointer-events: none !important;
+  }
+
+  #tsparticles canvas {
+    z-index: 0 !important;
+    position: absolute !important;
+    top: 0 !important;
+    left: 0 !important;
+  }
 }
