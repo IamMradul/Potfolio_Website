@@ -50,7 +50,7 @@ const About = () => {
             initial={{ opacity: 0, x: -30 }}
             animate={isVisible ? { opacity: 1, x: 0 } : {}}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="bg-card rounded-xl p-8 shadow-lg"
+            className="relative z-10 bg-card rounded-xl p-8 shadow-lg"
           >
             <h3 className="text-xl font-semibold mb-4 text-foreground">
               Professional Summary
@@ -76,7 +76,7 @@ const About = () => {
             initial={{ opacity: 0, x: 30 }}
             animate={isVisible ? { opacity: 1, x: 0 } : {}}
             transition={{ duration: 0.6, delay: 0.3 }}
-            className="bg-card rounded-xl p-8 shadow-lg"
+            className="relative z-10 bg-card rounded-xl p-8 shadow-lg"
           >
             <h3 className="text-xl font-semibold mb-4 text-foreground">
               What Drives Me
@@ -108,7 +108,7 @@ const About = () => {
               initial={{ opacity: 0, y: 30 }}
               animate={isVisible ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.5, delay: 0.4 + index * 0.1 }}
-              className="bg-card rounded-xl p-6 shadow-md hover:shadow-lg transition-shadow duration-300 text-center"
+              className="relative z-10 bg-card rounded-xl p-6 shadow-md hover:shadow-lg transition-shadow duration-300 text-center"
             >
               <div className="w-12 h-12 mx-auto mb-4 rounded-full bg-primary/10 flex items-center justify-center">
                 <item.icon className="h-6 w-6 text-primary" />

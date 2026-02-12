@@ -24,7 +24,7 @@ const ProjectCard = ({
   return (
     <CardContainer className="w-full">
       <CardBody
-        className={`bg-card relative group/card border border-border rounded-xl h-auto w-full ${
+        className={`relative z-10 bg-card group/card border border-border rounded-xl h-auto w-full ${
           compact ? "p-4" : "p-6"
         }`}
       >

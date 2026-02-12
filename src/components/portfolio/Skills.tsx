@@ -92,9 +92,9 @@ const Skills = () => {
               initial={{ opacity: 0, y: 30 }}
               animate={isVisible ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.5, delay: 0.1 + index * 0.1 }}
-              className={`bg-card rounded-xl p-6 shadow-md hover:shadow-lg transition-all duration-300 border ${
+              className={`relative z-10 bg-card rounded-xl p-6 shadow-md hover:shadow-lg transition-all duration-300 border ${
                 category.highlight
-                  ? "border-cyber/30 bg-gradient-to-br from-card to-cyber/5"
+                  ? "border-cyber/30"
                   : "border-border"
               }`}
             >

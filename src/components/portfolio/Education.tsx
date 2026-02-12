@@ -89,7 +89,7 @@ const Education = () => {
             {education.map((edu, index) => (
               <div
                 key={index}
-                className="bg-card rounded-xl p-6 shadow-md border border-border"
+                className="relative z-10 bg-card rounded-xl p-6 shadow-md border border-border"
               >
                 <div className="flex items-start justify-between gap-4">
                   <div>
@@ -148,9 +148,9 @@ const Education = () => {
                   animate={isVisible ? { opacity: 1, y: 0 } : {}}
                   transition={{ duration: 0.4, delay: 0.4 + index * 0.1 }}
                   onClick={() => toggleAchievementExpand(index)}
-                  className={`bg-card rounded-xl p-5 shadow-md border cursor-pointer transition-colors ${
+                  className={`relative z-10 bg-card rounded-xl p-5 shadow-md border cursor-pointer transition-colors ${
                     achievement.highlight
-                      ? "border-primary/30 bg-gradient-to-r from-card to-primary/5 hover:border-primary/60"
+                      ? "border-primary/30 hover:border-primary/60"
                       : "border-border hover:border-primary/50"
                   }`}
                   whileHover={{ y: -2 }}

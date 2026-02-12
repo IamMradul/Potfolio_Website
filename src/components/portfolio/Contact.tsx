@@ -63,7 +63,7 @@ const Contact = () => {
             <div className="space-y-6">
               <a
                 href="mailto:mradulg306@gmail.com"
-                className="flex items-center gap-4 p-4 bg-card rounded-lg border border-border hover:border-primary/30 transition-colors duration-300"
+                className="relative z-10 flex items-center gap-4 p-4 bg-card rounded-lg border border-border hover:border-primary/30 transition-colors duration-300"
               >
                 <div className="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center">
                   <Mail className="h-6 w-6 text-primary" />
@@ -78,7 +78,7 @@ const Contact = () => {
                 href="https://www.linkedin.com/in/mradul-gupta26"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center gap-4 p-4 bg-card rounded-lg border border-border hover:border-primary/30 transition-colors duration-300"
+                className="relative z-10 flex items-center gap-4 p-4 bg-card rounded-lg border border-border hover:border-primary/30 transition-colors duration-300"
               >
                 <div className="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center">
                   <Linkedin className="h-6 w-6 text-primary" />
@@ -93,7 +93,7 @@ const Contact = () => {
                 href="https://github.com/IamMradul"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center gap-4 p-4 bg-card rounded-lg border border-border hover:border-primary/30 transition-colors duration-300"
+                className="relative z-10 flex items-center gap-4 p-4 bg-card rounded-lg border border-border hover:border-primary/30 transition-colors duration-300"
               >
                 <div className="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center">
                   <Github className="h-6 w-6 text-primary" />
@@ -104,7 +104,7 @@ const Contact = () => {
                 </div>
               </a>
 
-              <div className="flex items-center gap-4 p-4 bg-card rounded-lg border border-border">
+              <div className="relative z-10 flex items-center gap-4 p-4 bg-card rounded-lg border border-border">
                 <div className="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center">
                   <MapPin className="h-6 w-6 text-primary" />
                 </div>

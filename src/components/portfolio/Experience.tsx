@@ -52,7 +52,7 @@ const Experience = () => {
               {/* Timeline dot */}
               <div className="absolute left-0 top-0 w-3 h-3 -translate-x-1/2 rounded-full bg-primary border-4 border-background" />
 
-              <div className="bg-card rounded-xl p-6 shadow-lg ml-4">
+              <div className="relative z-10 bg-card rounded-xl p-6 shadow-lg ml-4">
                 <div className="flex flex-wrap items-start justify-between gap-4 mb-4">
                   <div>
                     <h3 className="text-xl font-semibold text-foreground flex items-center gap-2">

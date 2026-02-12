@@ -51,7 +51,7 @@ const Publications = () => {
               initial={{ opacity: 0, y: 30 }}
               animate={isVisible ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.5, delay: 0.2 }}
-              className="bg-card rounded-xl p-6 shadow-lg border border-border hover:border-primary/30 transition-colors duration-300"
+              className="relative z-10 bg-card rounded-xl p-6 shadow-lg border border-border hover:border-primary/30 transition-colors duration-300"
             >
               <div className="flex items-center gap-3 mb-4">
                 <div className="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center">
@@ -86,7 +86,7 @@ const Publications = () => {
               initial={{ opacity: 0, y: 30 }}
               animate={isVisible ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.5, delay: 0.3 }}
-              className="bg-card rounded-xl p-6 shadow-lg border border-border hover:border-accent/30 transition-colors duration-300"
+              className="relative z-10 bg-card rounded-xl p-6 shadow-lg border border-border hover:border-accent/30 transition-colors duration-300"
             >
               <div className="flex items-center gap-3 mb-4">
                 <div className="w-12 h-12 rounded-lg bg-accent/10 flex items-center justify-center">
