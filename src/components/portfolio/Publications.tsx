@@ -28,7 +28,7 @@ const Publications = () => {
   const { ref, isVisible } = useScrollAnimation();
 
   return (
-    <section id="publications" className="py-24">
+    <section id="publications" className="py-12 md:py-24">
       <div className="section-container">
         <motion.div
           ref={ref}
@@ -43,7 +43,7 @@ const Publications = () => {
           </p>
         </motion.div>
 
-        <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 max-w-4xl mx-auto">
           {/* Publications */}
           {publications.map((pub, index) => (
             <motion.div

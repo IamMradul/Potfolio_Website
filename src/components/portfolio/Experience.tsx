@@ -22,7 +22,7 @@ const Experience = () => {
   const { ref, isVisible } = useScrollAnimation();
 
   return (
-    <section id="experience" className="py-24">
+    <section id="experience" className="py-12 md:py-24">
       <div className="section-container">
         <motion.div
           ref={ref}

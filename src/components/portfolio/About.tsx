@@ -29,14 +29,14 @@ const About = () => {
   const { ref, isVisible } = useScrollAnimation();
 
   return (
-    <section id="about" className="py-24 bg-secondary/30">
+    <section id="about" className="py-12 md:py-24 bg-secondary/30">
       <div className="section-container">
         <motion.div
           ref={ref}
           initial={{ opacity: 0, y: 50 }}
           animate={isVisible ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6 }}
-          className="text-center mb-16"
+          className="text-center mb-12 md:mb-16"
         >
           <h2 className="section-title">About Me</h2>
           <p className="section-subtitle max-w-3xl mx-auto">
@@ -45,14 +45,14 @@ const About = () => {
           </p>
         </motion.div>
 
-        <div className="grid md:grid-cols-2 gap-8 mb-16">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 mb-16">
           <motion.div
             initial={{ opacity: 0, x: -30 }}
             animate={isVisible ? { opacity: 1, x: 0 } : {}}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="relative z-10 bg-card rounded-xl p-8 shadow-lg"
+            className="relative z-10 bg-card rounded-xl p-6 md:p-8 shadow-lg"
           >
-            <h3 className="text-xl font-semibold mb-4 text-foreground">
+            <h3 className="text-lg md:text-xl font-semibold mb-4 text-foreground">
               Professional Summary
             </h3>
             <p className="text-muted-foreground leading-relaxed">
@@ -76,9 +76,9 @@ const About = () => {
             initial={{ opacity: 0, x: 30 }}
             animate={isVisible ? { opacity: 1, x: 0 } : {}}
             transition={{ duration: 0.6, delay: 0.3 }}
-            className="relative z-10 bg-card rounded-xl p-8 shadow-lg"
+            className="relative z-10 bg-card rounded-xl p-6 md:p-8 shadow-lg"
           >
-            <h3 className="text-xl font-semibold mb-4 text-foreground">
+            <h3 className="text-lg md:text-xl font-semibold mb-4 text-foreground">
               What Drives Me
             </h3>
             <p className="text-muted-foreground leading-relaxed">
@@ -101,7 +101,7 @@ const About = () => {
         </div>
 
         {/* Highlights Grid */}
-        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
           {highlights.map((item, index) => (
             <motion.div
               key={item.title}

@@ -124,8 +124,8 @@ const Hero = () => {
         }}
       />
 
-      <div className="section-container py-20 relative z-10">
-        <div className="grid lg:grid-cols-2 gap-26 lg:gap-24 items-center">
+      <div className="section-container py-12 md:py-20 relative z-10">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
           {/* Text Content */}
           <motion.div
             initial={{ opacity: 0, x: -50 }}
@@ -175,13 +175,13 @@ const Hero = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.6 }}
-              className="flex flex-wrap gap-4 justify-center lg:justify-start mb-8"
+              className="flex flex-col sm:flex-row flex-wrap gap-4 justify-center lg:justify-start mb-8 w-full sm:w-auto"
             >
-              <Button size="lg" onClick={scrollToContact}>
+              <Button size="lg" onClick={scrollToContact} className="w-full sm:w-auto">
                 <Mail className="mr-2 h-5 w-5" />
                 Contact Me
               </Button>
-              <Button size="lg" variant="outline" asChild>
+              <Button size="lg" variant="outline" asChild className="w-full sm:w-auto">
                 <a href="/Resume_Mradul_Gupta.pdf" download>
                   <Download className="mr-2 h-5 w-5" />
                   Download Resume
@@ -197,10 +197,10 @@ const Hero = () => {
             initial={{ opacity: 0, scale: 0.8 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.8, delay: 0.3 }}
-            className="flex justify-end"
+            className="flex justify-center lg:justify-end"
           >
             <div className="relative">
-              <div className="w-64 h-64 md:w-80 md:h-80 rounded-full overflow-hidden border-4 border-primary/20 shadow-2xl">
+              <div className="w-48 h-48 sm:w-64 sm:h-64 md:w-80 md:h-80 rounded-full overflow-hidden border-4 border-primary/20 shadow-2xl">
                 <img
                   src="/ProfilePhoto.jpg"
                   alt="Mradul Gupta"

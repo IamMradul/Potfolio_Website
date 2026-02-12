@@ -36,14 +36,14 @@ const Contact = () => {
   };
 
   return (
-    <section id="contact" className="py-24">
+    <section id="contact" className="py-12 md:py-24">
       <div className="section-container">
         <motion.div
           ref={ref}
           initial={{ opacity: 0, y: 50 }}
           animate={isVisible ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6 }}
-          className="text-center mb-16"
+          className="text-center mb-12 md:mb-16"
         >
           <h2 className="section-title">Get In Touch</h2>
           <p className="section-subtitle">
@@ -51,14 +51,14 @@ const Contact = () => {
           </p>
         </motion.div>
 
-        <div className="grid lg:grid-cols-2 gap-12 max-w-5xl mx-auto">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12 max-w-5xl mx-auto">
           {/* Contact Info */}
           <motion.div
             initial={{ opacity: 0, x: -30 }}
             animate={isVisible ? { opacity: 1, x: 0 } : {}}
             transition={{ duration: 0.6, delay: 0.2 }}
           >
-            <h3 className="text-xl font-semibold mb-6">Contact Information</h3>
+            <h3 className="text-lg sm:text-xl font-semibold mb-6">Contact Information</h3>
 
             <div className="space-y-6">
               <a
@@ -122,7 +122,7 @@ const Contact = () => {
             animate={isVisible ? { opacity: 1, x: 0 } : {}}
             transition={{ duration: 0.6, delay: 0.3 }}
           >
-            <h3 className="text-xl font-semibold mb-6">Send a Message</h3>
+            <h3 className="text-lg sm:text-xl font-semibold mb-6">Send a Message</h3>
 
             <form onSubmit={handleSubmit} className="space-y-4">
               <div className="grid sm:grid-cols-2 gap-4">

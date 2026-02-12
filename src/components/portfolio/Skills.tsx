@@ -70,7 +70,7 @@ const Skills = () => {
   const { ref, isVisible } = useScrollAnimation();
 
   return (
-    <section id="skills" className="py-24">
+    <section id="skills" className="py-12 md:py-24">
       <div className="section-container">
         <motion.div
           ref={ref}
@@ -85,7 +85,7 @@ const Skills = () => {
           </p>
         </motion.div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {skillCategories.map((category, index) => (
             <motion.div
               key={category.title}

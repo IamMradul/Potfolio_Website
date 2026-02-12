@@ -109,12 +109,13 @@
   }
 
   body {
-    @apply bg-background text-foreground antialiased;
+    @apply bg-background text-foreground antialiased overflow-x-hidden;
     font-family: 'Inter', system-ui, -apple-system, sans-serif;
   }
 
   html {
     scroll-behavior: smooth;
+    overflow-x: hidden;
   }
 }
 
@@ -124,11 +125,11 @@
   }
 
   .section-title {
-    @apply text-3xl md:text-4xl font-bold text-foreground mb-4;
+    @apply text-2xl sm:text-3xl md:text-4xl font-bold text-foreground mb-4;
   }
 
   .section-subtitle {
-    @apply text-lg text-muted-foreground mb-8;
+    @apply text-base sm:text-lg text-muted-foreground mb-8;
   }
 
   .gradient-text {

@@ -46,7 +46,7 @@ const Extracurriculars = () => {
   const { ref, isVisible } = useScrollAnimation();
 
   return (
-    <section id="extracurriculars" className="py-24 bg-secondary/30">
+    <section id="extracurriculars" className="py-12 md:py-24 bg-secondary/30">
       <div className="section-container">
         <motion.div
           ref={ref}
@@ -61,7 +61,7 @@ const Extracurriculars = () => {
           </p>
         </motion.div>
 
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {activities.map((activity, index) => (
             <motion.div
               key={activity.title}
