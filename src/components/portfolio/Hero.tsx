@@ -47,7 +47,7 @@ const Hero = () => {
               transition={{ delay: 0.2 }}
               className="cyber-badge mb-6"
             >
-              🔐 Cybersecurity Enthusiast
+              💻 Software Developer
             </motion.div>
 
             <motion.h1
@@ -66,7 +66,7 @@ const Hero = () => {
               transition={{ delay: 0.4 }}
               className="text-xl md:text-2xl text-muted-foreground mb-6"
             >
-              Cybersecurity Intern | Backend & Security Engineering
+              Software Developer | Backend Engineering & AI/ML
             </motion.h2>
 
             <motion.p
@@ -76,8 +76,8 @@ const Hero = () => {
               className="text-muted-foreground text-lg mb-8 max-w-xl mx-auto lg:mx-0"
             >
               Computer Science Engineering student with hands-on experience in
-              cybersecurity fundamentals, backend development, and secure system
-              design. Passionate about building secure, scalable systems.
+              backend development, AI/ML solutions, and building scalable
+              systems. Passionate about creating innovative digital products.
             </motion.p>
 
             {/* CTA Buttons */}

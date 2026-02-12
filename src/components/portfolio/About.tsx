@@ -1,22 +1,22 @@
 import { motion } from "framer-motion";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
-import { Shield, Code, Brain, Trophy } from "lucide-react";
+import { Code, Brain, Trophy, Layers } from "lucide-react";
 
 const highlights = [
   {
-    icon: Shield,
-    title: "Security-Focused",
-    description: "Building secure RESTful APIs and implementing robust authentication mechanisms",
-  },
-  {
     icon: Code,
     title: "Backend Development",
-    description: "Experienced in Flask, Next.js, and creating scalable backend architectures",
+    description: "Building robust RESTful APIs and scalable backend architectures with Flask & Next.js",
+  },
+  {
+    icon: Layers,
+    title: "Full-Stack Skills",
+    description: "Experienced across the stack — from React frontends to Python and Node.js backends",
   },
   {
     icon: Brain,
     title: "AI/ML Integration",
-    description: "Developing intelligent systems for threat detection and misinformation analysis",
+    description: "Developing intelligent systems for real-world applications like misinformation detection",
   },
   {
     icon: Trophy,
@@ -41,7 +41,7 @@ const About = () => {
           <h2 className="section-title">About Me</h2>
           <p className="section-subtitle max-w-3xl mx-auto">
             A passionate Computer Science Engineering student dedicated to building
-            secure and innovative digital solutions
+            innovative and scalable digital solutions
           </p>
         </motion.div>
 
@@ -57,16 +57,15 @@ const About = () => {
             </h3>
             <p className="text-muted-foreground leading-relaxed">
               Computer Science Engineering student with hands-on experience in
-              cybersecurity fundamentals, backend development, and secure system
-              design. Skilled in building secure RESTful APIs, implementing
-              authentication and authorization mechanisms, performing basic
-              security analysis, and developing AI/ML pipelines for threat and
-              misinformation detection.
+              backend development, AI/ML pipelines, and building scalable
+              systems. Skilled in creating RESTful APIs, implementing
+              authentication mechanisms, and developing intelligent solutions
+              for real-world problems.
             </p>
             <p className="text-muted-foreground leading-relaxed mt-4">
-              Strong foundation in Linux, API security, debugging, and system
-              reliability. Seeking opportunities to contribute to secure,
-              scalable, production-grade systems.
+              Strong foundation in Python, JavaScript/TypeScript, and modern
+              frameworks. Seeking opportunities to contribute to impactful,
+              production-grade systems.
             </p>
           </motion.div>
 
@@ -80,15 +79,14 @@ const About = () => {
               What Drives Me
             </h3>
             <p className="text-muted-foreground leading-relaxed">
-              I'm fascinated by the intersection of security and innovation. In
-              an increasingly connected world, I believe that building secure
-              systems isn't just a technical challenge—it's a responsibility.
+              I'm fascinated by the power of technology to solve real-world
+              problems. From building AI pipelines to combat misinformation to
+              creating gesture-based authentication systems — I love tackling
+              challenging problems with creative solutions.
             </p>
             <p className="text-muted-foreground leading-relaxed mt-4">
-              Whether it's creating gesture-based CAPTCHA systems for enhanced
-              authentication or developing AI pipelines to combat misinformation,
-              I'm always looking for ways to make technology safer and more
-              reliable for everyone.
+              I believe in writing clean, maintainable code and continuously
+              learning new technologies to stay at the forefront of innovation.
             </p>
           </motion.div>
         </div>

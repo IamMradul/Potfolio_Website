@@ -1,57 +1,38 @@
 import { Dock, DockIcon } from "@/components/ui/dock";
-import {
-  Home,
-  User,
-  Briefcase,
-  FolderKanban,
-  Wrench,
-  GraduationCap,
-  FileText,
-  Heart,
-  Mail,
-} from "lucide-react";
+import { Instagram, Github, Linkedin, Twitter, Mail } from "lucide-react";
 import {
   Tooltip,
   TooltipContent,
   TooltipTrigger,
 } from "@/components/ui/tooltip";
 
-const navItems = [
-  { icon: Home, label: "Home", href: "#hero" },
-  { icon: User, label: "About", href: "#about" },
-  { icon: Briefcase, label: "Experience", href: "#experience" },
-  { icon: FolderKanban, label: "Projects", href: "#projects" },
-  { icon: Wrench, label: "Skills", href: "#skills" },
-  { icon: GraduationCap, label: "Education", href: "#education" },
-  { icon: FileText, label: "Publications", href: "#publications" },
-  { icon: Heart, label: "Interests", href: "#extracurriculars" },
-  { icon: Mail, label: "Contact", href: "#contact" },
+const socialItems = [
+  { icon: Instagram, label: "Instagram", href: "https://www.instagram.com/mradul_5/" },
+  { icon: Github, label: "GitHub", href: "https://github.com/IamMradul" },
+  { icon: Linkedin, label: "LinkedIn", href: "https://www.linkedin.com/in/mradul-gupta26/" },
+  { icon: Twitter, label: "X (Twitter)", href: "https://x.com/MardulGupta" },
+  { icon: Mail, label: "Email", href: "mailto:mradulg306@gmail.com" },
 ];
 
 const DockNavigation = () => {
-  const scrollToSection = (href: string) => {
-    const element = document.querySelector(href);
-    if (element) {
-      element.scrollIntoView({ behavior: "smooth" });
-    }
-  };
-
   return (
     <div className="fixed bottom-6 left-1/2 -translate-x-1/2 z-50">
       <Dock className="bg-background/80 backdrop-blur-lg border-border shadow-lg">
-        {navItems.map((item) => (
+        {socialItems.map((item) => (
           <Tooltip key={item.label}>
             <TooltipTrigger asChild>
               <DockIcon
                 className="bg-secondary/50 hover:bg-primary/20 transition-colors duration-200"
               >
-                <button
-                  onClick={() => scrollToSection(item.href)}
+                <a
+                  href={item.href}
+                  target={item.href.startsWith("mailto:") ? undefined : "_blank"}
+                  rel="noopener noreferrer"
                   className="w-full h-full flex items-center justify-center"
                   aria-label={item.label}
                 >
                   <item.icon className="h-5 w-5 text-foreground" />
-                </button>
+                </a>
               </DockIcon>
             </TooltipTrigger>
             <TooltipContent side="top" className="mb-2">
