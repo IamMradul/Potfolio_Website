@@ -33,7 +33,7 @@ const Experience = () => {
         >
           <h2 className="section-title">Work Experience</h2>
           <p className="section-subtitle">
-            Professional experience in building secure backend systems
+            Professional experience in backend development and engineering
           </p>
         </motion.div>
 

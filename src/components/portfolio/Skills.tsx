@@ -5,15 +5,14 @@ import { Shield, Code, Layers, Brain, Database, Wrench } from "lucide-react";
 
 const skillCategories = [
   {
-    title: "Cybersecurity & Core Concepts",
+    title: "Core Engineering",
     icon: Shield,
     highlight: true,
     skills: [
       "Authentication & Authorization",
-      "API Security",
-      "Secure Backend Architecture",
+      "API Design",
+      "Backend Architecture",
       "Input Validation",
-      "Basic Threat Analysis",
       "Debugging",
       "Linux Fundamentals",
       "Version Control",
@@ -69,7 +68,7 @@ const Skills = () => {
         >
           <h2 className="section-title">Skills & Technologies</h2>
           <p className="section-subtitle">
-            Technical expertise with a strong focus on cybersecurity and secure development
+            Technical expertise across backend development, AI/ML, and modern frameworks
           </p>
         </motion.div>
 
