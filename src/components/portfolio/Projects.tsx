@@ -1,20 +1,19 @@
 import { motion } from "framer-motion";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 import ProjectCard from "./ProjectCard";
-import { Shield, Brain, ShoppingCart, Newspaper, Bot } from "lucide-react";
+import { Shield, Brain, ShoppingCart, Newspaper, Bot, PawPrintIcon } from "lucide-react";
 
 const projects = [
   {
-    title: "Advanced Fake News Detection",
-    description:
-      "Engineered an end-to-end NLP pipeline for fake news classification using TF-IDF, feature engineering, and optimized machine learning models with high validation accuracy. Focused on model evaluation, performance tuning, and scalable architecture design. Published at CISES 2025 international conference.",
-    icon: Brain,
-    image: "/images/fake-news.png",
-    technologies: ["Python", "NLP", "Scikit-learn", "TensorFlow", "Machine Learning"],
-    category: "AI/ML Engineering",
-    github: "https://github.com/IamMradul/Advance-Fake-News-Detection",
-    live: "",
-    featured: true,
+  title: "Aniwoo – Smart Pet Care Platform",
+  description: "Built a full-stack pet care web application offering AI-powered disease detection, veterinary services, a pet nutrition shop, grooming products, and a local pet mating connect feature. The AI scanner analyzes pet photos in seconds to surface potential health concerns with vet-friendly summaries.",
+  icon: PawPrintIcon, 
+  image: "/images/aniwoo.jpg",
+  technologies: ["Next.js", "TypeScript", "Supabase", "Tailwind CSS", "AI/ML", "Vercel"],
+  category: "Full Stack Web Development",
+  github: "https://github.com/IamMradul/aniwoo",
+  live: "https://aniwoo.vercel.app/",
+  featured: true,
   },
   {
     title: "Gesture-Based CAPTCHA System",
@@ -41,6 +40,18 @@ const projects = [
     featured: true,
   },
   {
+    title: "Advanced Fake News Detection",
+    description:
+      "Engineered an end-to-end NLP pipeline for fake news classification using TF-IDF, feature engineering, and optimized machine learning models with high validation accuracy. Focused on model evaluation, performance tuning, and scalable architecture design. Published at CISES 2025 international conference.",
+    icon: Brain,
+    image: "/images/fake-news.png",
+    technologies: ["Python", "NLP", "Scikit-learn", "TensorFlow", "Machine Learning"],
+    category: "AI/ML Engineering",
+    github: "https://github.com/IamMradul/Advance-Fake-News-Detection",
+    live: "",
+    featured: true,
+  },
+  {
     title: "Ira – Anti-Distraction Bot",
     description:
       "Designed and implemented an automation bot to reduce digital distractions through intelligent monitoring and scheduled intervention logic. Built with Python using modular architecture and task automation to improve productivity and system efficiency.",
@@ -50,6 +61,7 @@ const projects = [
     category: "Automation Systems",
     github: "https://github.com/IamMradul/Ira-The-Anti-Distraction-Bot",
     live: "",
+    featured: true,
   },
   {
     title: "News App",
@@ -61,6 +73,7 @@ const projects = [
     category: "Frontend Engineering",
     github: "https://github.com/IamMradul/News-app",
     live: "https://newsly-global.vercel.app/",
+    featured: true,
   },
 ];
 
