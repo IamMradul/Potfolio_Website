@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
-import { FileText, Lightbulb, ExternalLink } from "lucide-react";
+import { FileText } from "lucide-react";
 
 const publications = [
   {
@@ -12,15 +12,14 @@ const publications = [
     description:
       "Presented research on machine learning and NLP-based approaches for automated misinformation detection with high accuracy.",
   },
-];
-
-const patents = [
   {
-    type: "Patent",
-    icon: Lightbulb,
-    title: "Kalaamitra: AI-Powered E-Commerce Platform",
-    description: "Web-Based AI E-Commerce System with semantic search and intelligent product recommendations.",
-    status: "Filed",
+    type: "Research Paper",
+    icon: FileText,
+    title: "From Detection to Repair: A Hybrid LLM-Based Framework for Vulnerability Analysis in Open-Source Software",
+    venue: "Research Paper",
+    status: "In Progress",
+    description:
+      "A hybrid LLM-based framework for identifying and repairing vulnerabilities in open-source software.",
   },
 ];
 
@@ -37,9 +36,9 @@ const Publications = () => {
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <h2 className="section-title">Publications & Patents</h2>
+          <h2 className="section-title">Publications</h2>
           <p className="section-subtitle">
-            Research contributions and intellectual property
+            Research contributions and published work
           </p>
         </motion.div>
 
@@ -79,38 +78,6 @@ const Publications = () => {
             </motion.div>
           ))}
 
-          {/* Patents */}
-          {patents.map((patent, index) => (
-            <motion.div
-              key={patent.title}
-              initial={{ opacity: 0, y: 30 }}
-              animate={isVisible ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.5, delay: 0.3 }}
-              className="relative z-10 bg-card rounded-xl p-6 shadow-lg border border-border hover:border-accent/30 transition-colors duration-300"
-            >
-              <div className="flex items-center gap-3 mb-4">
-                <div className="w-12 h-12 rounded-lg bg-accent/10 flex items-center justify-center">
-                  <patent.icon className="h-6 w-6 text-accent" />
-                </div>
-                <div>
-                  <span className="text-xs font-medium text-accent uppercase tracking-wider">
-                    {patent.type}
-                  </span>
-                  <div className="flex items-center gap-2">
-                    <span className="inline-block px-2 py-0.5 bg-accent/10 text-accent text-xs rounded-full">
-                      {patent.status}
-                    </span>
-                  </div>
-                </div>
-              </div>
-
-              <h3 className="text-lg font-semibold text-foreground mb-3">
-                {patent.title}
-              </h3>
-
-              <p className="text-sm text-muted-foreground">{patent.description}</p>
-            </motion.div>
-          ))}
         </div>
       </div>
     </section>

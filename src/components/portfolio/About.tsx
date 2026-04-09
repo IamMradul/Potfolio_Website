@@ -64,7 +64,7 @@ const About = () => {
               system design fundamentals, and performance-oriented development.
             </p>
             <p className="text-muted-foreground leading-relaxed mt-4">
-              Co-author of an IEEE conference paper on AI-driven Fake News 
+              Author of an IEEE conference paper on AI-driven Fake News 
               Detection and finalist of the Google Gen AI Exchange Hackathon. 
               University rank holder in competitive coding, with a focus on 
               building production-ready, secure, and scalable systems that 

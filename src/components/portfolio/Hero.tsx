@@ -167,7 +167,7 @@ const Hero = () => {
               transition={{ delay: 0.5 }}
               className="text-muted-foreground text-lg mb-8 max-w-xl mx-auto lg:mx-0"
             >
-              Computer Science Engineering student specializing in backend systems and AI/ML solutions. Co-author of an IEEE conference paper on Fake News Detection and university rank holder in competitive coding. Passionate about building secure, scalable, and production-grade systems.
+              Computer Science Engineering student specializing in backend systems and AI/ML solutions. Author of an IEEE conference paper on Fake News Detection and university rank holder in competitive coding. Passionate about building secure, scalable, and production-grade systems.
             </motion.p>
 
             {/* CTA Buttons */}
