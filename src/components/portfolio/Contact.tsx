@@ -15,15 +15,57 @@ const Contact = () => {
     subject: "",
     message: "",
   });
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitMessage, setSubmitMessage] = useState<{
+    type: "success" | "error";
+    text: string;
+  } | null>(null);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    const mailtoLink = `mailto:mradulg306@gmail.com?subject=${encodeURIComponent(
-      formData.subject || "Portfolio Contact"
-    )}&body=${encodeURIComponent(
-      `Name: ${formData.name}\nEmail: ${formData.email}\n\nMessage:\n${formData.message}`
-    )}`;
-    window.location.href = mailtoLink;
+
+    setIsSubmitting(true);
+    setSubmitMessage(null);
+
+    try {
+      const response = await fetch("https://formsubmit.co/ajax/mradulg306@gmail.com", {
+        method: "POST",
+        headers: {
+          Accept: "application/json",
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          name: formData.name,
+          email: formData.email,
+          subject: formData.subject || "Portfolio Contact",
+          message: formData.message,
+          _template: "table",
+          _subject: formData.subject || "Portfolio Contact",
+        }),
+      });
+
+      if (!response.ok) {
+        throw new Error("Unable to send message right now.");
+      }
+
+      setFormData({
+        name: "",
+        email: "",
+        subject: "",
+        message: "",
+      });
+      setSubmitMessage({
+        type: "success",
+        text: "Message sent successfully. You should receive a reply by email.",
+      });
+    } catch {
+      setSubmitMessage({
+        type: "error",
+        text: "Message could not be sent right now. Please email mradulg306@gmail.com directly.",
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const handleChange = (
@@ -177,11 +219,21 @@ const Contact = () => {
 
               <Button type="submit" size="lg" className="w-full">
                 <Send className="mr-2 h-5 w-5" />
-                Send Message
+                {isSubmitting ? "Sending..." : "Send Message"}
               </Button>
 
+              {submitMessage && (
+                <p
+                  className={`text-sm text-center ${
+                    submitMessage.type === "success" ? "text-green-600" : "text-red-500"
+                  }`}
+                >
+                  {submitMessage.text}
+                </p>
+              )}
+
               <p className="text-xs text-muted-foreground text-center">
-                This will open your email client with a pre-filled message
+                This sends your message directly to my inbox
               </p>
             </form>
           </motion.div>
