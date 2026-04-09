@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
-import { FileText } from "lucide-react";
+import { FileText, ExternalLink } from "lucide-react";
 
 const publications = [
   {
@@ -9,6 +9,7 @@ const publications = [
     title: "Advanced Fake News Detection",
     venue: "International Conference on Intelligent and Secure Engineering Solutions (CISES 2025)",
     status: "Published",
+    paperUrl: "https://ieeexplore.ieee.org/document/11264997",
     description:
       "Presented research on machine learning and NLP-based approaches for automated misinformation detection with high accuracy.",
   },
@@ -75,6 +76,18 @@ const Publications = () => {
               <p className="text-sm text-primary font-medium mb-3">{pub.venue}</p>
 
               <p className="text-sm text-muted-foreground">{pub.description}</p>
+
+              {pub.paperUrl && (
+                <a
+                  href={pub.paperUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-1.5 mt-4 text-sm font-medium text-primary hover:text-primary/80 transition-colors"
+                >
+                  View Research Paper
+                  <ExternalLink className="h-4 w-4" />
+                </a>
+              )}
             </motion.div>
           ))}
 
