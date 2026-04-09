@@ -1,14 +1,11 @@
 import { motion } from "framer-motion";
-import { useEffect, useState } from "react";
+import { useEffect, useState, type SyntheticEvent } from "react";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 import { GraduationCap, Trophy, Award, Medal, ChevronDown, Images, X } from "lucide-react";
 import {
-  Carousel,
-  CarouselContent,
-  CarouselItem,
-  CarouselNext,
-  CarouselPrevious,
-} from "@/components/ui/carousel";
+  DraggableCardBody,
+  DraggableCardContainer,
+} from "@/components/ui/draggable-card";
 
 const education = [
   {
@@ -49,7 +46,18 @@ const schooling = [
   },
 ];
 
-const achievements = [
+type Achievement = {
+  icon: typeof Trophy;
+  title: string;
+  description: string;
+  year: string;
+  highlight?: boolean;
+  link?: string;
+  linkLabel?: string;
+  photos: string[];
+};
+
+const achievements: Achievement[] = [
   {
     icon: Trophy,
     title: "Google Gen AI Exchange Hackathon – Finalist",
@@ -58,7 +66,10 @@ const achievements = [
     year: "2025",
     highlight: true,
     photos: [
-      "/images/News_app.png",
+      "/images/Mradul Gupta top 10 AI-Powered Marketplace Assistant for Local Artisans Google Gen AI.png",
+      "/images/Google Gen Ai 1.jpeg",
+      "/images/Google Gen Ai 2.jpeg",
+      "/images/Google Gen Ai 3.jpeg",
     ],
   },
   {
@@ -69,7 +80,9 @@ const achievements = [
   year: "2026",
   highlight: true,
   photos: [
-    "/images/Kalamitra.png",
+    "/images/winner CUSAT.png",
+    "/images/GDG_IMACE_Winner.jpg",
+    "/images/Devfusion.jpg",
   ],
 },
   {
@@ -79,9 +92,10 @@ const achievements = [
       "Participated in Hackshastra 2.0, a 30-hour hackathon, and won in the UI/UX category for creating an impactful and user-centered product experience.",
     year: "2026",
     highlight: true,
-    link: "https://www.linkedin.com/posts/apexcsecu_technova2026-hackshastra2-aitcse-ugcPost-7442967078254383104-6L-C?utm_source=share&utm_medium=member_android&rcm=ACoAAFO2uScBsVN_bn50gtH0C_Jiu7i7_Wbyvek",
-    linkLabel: "View Achievement Post",
-    photos: [],
+    photos: [
+      "/images/Hackshastra2.0.jpeg",
+      "/images/Hackshastra 2.0 2.jpeg",
+    ],
   },
   {
     icon: Medal,
@@ -97,7 +111,9 @@ const achievements = [
     description:
       "Secured 2nd position, demonstrating strong algorithmic thinking and competitive programming skills.",
     year: "2024",
-    photos: [],
+    photos: [
+      "/images/Coding_Competition.jpg"
+    ],
   },
 ];
 
@@ -105,8 +121,42 @@ const Education = () => {
   const { ref, isVisible } = useScrollAnimation();
   const [expandedAchievements, setExpandedAchievements] = useState<number | null>(null);
   const [activePhotos, setActivePhotos] = useState<number | null>(null);
+  const [photoOrientations, setPhotoOrientations] = useState<Record<string, "landscape" | "portrait" | "square">>({});
   const selectedAchievement = activePhotos !== null ? achievements[activePhotos] : null;
   const selectedPhotos = selectedAchievement?.photos ?? [];
+  const handlePhotoLoad = (photo: string) => (event: SyntheticEvent<HTMLImageElement>) => {
+    const { naturalWidth, naturalHeight } = event.currentTarget;
+    const orientation =
+      naturalWidth > naturalHeight
+        ? "landscape"
+        : naturalWidth < naturalHeight
+          ? "portrait"
+          : "square";
+
+    setPhotoOrientations((current) =>
+      current[photo] === orientation ? current : { ...current, [photo]: orientation },
+    );
+  };
+
+  const photoCards = selectedPhotos.map((photo, index) => {
+    const orientation = photoOrientations[photo] ?? "landscape";
+    const layoutClasses = [
+      "top-10 left-[10%] rotate-[-6deg]",
+      "top-20 left-[34%] rotate-[5deg]",
+      "top-14 left-[58%] rotate-[-4deg]",
+      "top-28 left-[72%] rotate-[7deg]",
+      "top-[46%] left-[16%] rotate-[3deg]",
+      "top-[50%] left-[42%] rotate-[-6deg]",
+      "top-[52%] left-[66%] rotate-[5deg]",
+    ];
+
+    return {
+      title: `${selectedAchievement?.title ?? "Photo"} ${index + 1}`,
+      image: photo,
+      className: `absolute ${layoutClasses[index % layoutClasses.length]}`,
+      orientation,
+    };
+  });
 
   const toggleAchievementExpand = (index: number) => {
     if (expandedAchievements === index) {
@@ -363,7 +413,7 @@ const Education = () => {
           onClick={() => setActivePhotos(null)}
         >
           <div
-            className="relative w-full max-w-5xl mx-auto h-full flex items-center justify-center"
+            className="relative w-full max-w-6xl mx-auto h-full flex items-center justify-center"
             onClick={(event) => event.stopPropagation()}
           >
             <button
@@ -375,38 +425,44 @@ const Education = () => {
               <X className="h-4 w-4" />
             </button>
 
-            <div className="w-full max-w-4xl">
+            <div className="w-full h-full max-h-[88vh]">
               <p className="text-center text-sm md:text-base text-white/90 font-medium mb-4">
                 {selectedAchievement?.title} - Photos
               </p>
 
-              <Carousel opts={{ loop: selectedPhotos.length > 1 }} className="w-full">
-                <CarouselContent>
-                  {selectedPhotos.map((photo: string, photoIndex: number) => (
-                    <CarouselItem key={`${selectedAchievement?.title}-overlay-photo-${photoIndex}`}>
-                      <a
-                        href={photo}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="block rounded-xl overflow-hidden border border-white/20"
-                      >
-                        <img
-                          src={photo}
-                          alt={`${selectedAchievement?.title} photo ${photoIndex + 1}`}
-                          className="w-full h-[60vh] md:h-[72vh] object-contain bg-black"
-                          loading="lazy"
-                        />
-                      </a>
-                    </CarouselItem>
-                  ))}
-                </CarouselContent>
-                {selectedPhotos.length > 1 && (
-                  <>
-                    <CarouselPrevious className="left-2 md:left-4 top-1/2 -translate-y-1/2 bg-background/90 border-border" />
-                    <CarouselNext className="right-2 md:right-4 top-1/2 -translate-y-1/2 bg-background/90 border-border" />
-                  </>
-                )}
-              </Carousel>
+              <DraggableCardContainer className="w-full h-[78vh] md:h-[82vh] overflow-clip rounded-3xl bg-white/5 border border-white/10">
+                {photoCards.map((item) => (
+                  <DraggableCardBody
+                    key={item.title}
+                    className={`${item.className} ${
+                      item.orientation === "landscape"
+                        ? "w-80 md:w-[22rem]"
+                        : item.orientation === "portrait"
+                          ? "w-56 md:w-64"
+                          : "w-72 md:w-80"
+                    }`}
+                  >
+                    <a href={item.image} target="_blank" rel="noopener noreferrer" className="block">
+                      <img
+                        src={item.image}
+                        alt={item.title}
+                        onLoad={handlePhotoLoad(item.image)}
+                        className={`pointer-events-none relative z-10 mx-auto block max-w-full h-auto w-auto rounded-xl object-contain object-center ${
+                          item.orientation === "landscape"
+                            ? "max-h-80 md:max-h-[22rem]"
+                            : item.orientation === "portrait"
+                              ? "max-h-60 md:max-h-72"
+                              : "max-h-72 md:max-h-80"
+                        }`}
+                        loading="lazy"
+                      />
+                    </a>
+                    <h3 className="mt-3 text-center text-base font-semibold text-neutral-200">
+                      {item.title}
+                    </h3>
+                  </DraggableCardBody>
+                ))}
+              </DraggableCardContainer>
             </div>
           </div>
         </div>
