@@ -59,7 +59,7 @@ type Achievement = {
 
 const achievements: Achievement[] = [
   {
-    icon: Trophy,
+    icon: Award,
     title: "Google Gen AI Exchange Hackathon – Finalist",
     description:
       "Selected among top-performing teams nationwide for building AI-powered solutions using Google Generative AI technologies.",
@@ -73,7 +73,7 @@ const achievements: Achievement[] = [
     ],
   },
   {
-  icon: Award,
+  icon: Trophy,
   title: "GDG TechSprint Hackathon – 5× Winner",
   description:
     "Secured 1st place in five Google Developer Group (GDG) TechSprint hackathons hosted at five different universities, demonstrating consistent technical excellence, architecture design, and competitive performance.",
@@ -95,6 +95,19 @@ const achievements: Achievement[] = [
     photos: [
       "/images/Hackshastra2.0.jpeg",
       "/images/Hackshastra 2.0 2.jpeg",
+    ],
+  },
+  {
+    icon: Award,
+    title: "Hacksagon 2026 – Finalist",
+    description:
+      "Reached the Finals of Hacksagon 2026, a competitive hackathon that brought together talented teams to tackle real-world challenges, demonstrating strong technical skills, creative problem-solving, and collaborative innovation under pressure.",
+    year: "2026 ",
+    photos: [
+      "/images/Hacksagon_Finalist.jpg",
+      "/images/Hacksagon_1.jpeg",
+      "/images/Hacksagon_2.jpeg",
+      "/images/Hacksagon_3.jpeg",
     ],
   },
   {
