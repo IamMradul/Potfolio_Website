@@ -73,18 +73,19 @@ const achievements: Achievement[] = [
     ],
   },
   {
-  icon: Trophy,
-  title: "GDG TechSprint Hackathon – 5× Winner",
-  description:
-    "Secured 1st place in five Google Developer Group (GDG) TechSprint hackathons hosted at five different universities, demonstrating consistent technical excellence, architecture design, and competitive performance.",
-  year: "2026",
-  highlight: true,
-  photos: [
-    "/images/winner CUSAT.png",
-    "/images/GDG_IMACE_Winner.jpg",
-    "/images/Devfusion.jpg",
-  ],
-},
+    icon: Trophy,
+    title: "GDG TechSprint Hackathon – 5× Winner",
+    description:
+      "Secured 1st place in five Google Developer Group (GDG) TechSprint hackathons hosted at five different universities, demonstrating consistent technical excellence, architecture design, and competitive performance.",
+    year: "2026",
+    highlight: true,
+    photos: [
+      "/images/winner CUSAT.png",
+      "/images/GDG_IMACE_Winner.jpg",
+      "/images/Devfusion.jpg",
+      "/images/GDG_CU_Techsprint.png",
+    ],
+  },
   {
     icon: Award,
     title: "Hackshastra 2.0 – UI/UX Winner",
@@ -196,14 +197,14 @@ const Education = () => {
   }, [activePhotos]);
 
   return (
-    <section id="education" className="py-12 md:py-24 bg-secondary/30">
+    <section id="education" className="py-12 md:py-20 bg-secondary/30">
       <div className="section-container">
         <motion.div
           ref={ref}
           initial={{ opacity: 0, y: 50 }}
           animate={isVisible ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6 }}
-          className="text-center mb-16"
+          className="text-center mb-8"
         >
           <h2 className="section-title">Education & Achievements</h2>
           <p className="section-subtitle">
@@ -230,14 +231,14 @@ const Education = () => {
               >
                 <div className="flex items-start justify-between gap-4">
                   <div>
-                    <h4 className="font-semibold text-foreground mb-1">
+                    <h4 className="text-lg font-semibold text-foreground mb-1">
                       {edu.degree}
                     </h4>
                     <p className="text-primary font-medium">{edu.institution}</p>
                     <p className="text-sm text-muted-foreground">{edu.location}</p>
                   </div>
                   <div className="text-right">
-                    <span className="text-sm text-muted-foreground">{edu.period}</span>
+                    <span className="text-xs text-muted-foreground">{edu.period}</span>
                     {edu.current && (
                       <span className="block mt-1 text-xs text-primary font-medium">
                         Currently Pursuing
@@ -281,13 +282,13 @@ const Education = () => {
                   >
                     <div className="flex items-start justify-between gap-4">
                       <div>
-                        <h4 className="font-semibold text-foreground mb-1">
+                        <h4 className="text-lg font-semibold text-foreground mb-1">
                           {school.level}
                         </h4>
                         <p className="text-primary font-medium">{school.institution}</p>
                         <p className="text-sm text-muted-foreground">{school.location}</p>
                       </div>
-                      <span className="text-sm text-muted-foreground">{school.period}</span>
+                      <span className="text-xs text-muted-foreground">{school.period}</span>
                     </div>
 
                     {school.grade && (
@@ -330,29 +331,26 @@ const Education = () => {
                   initial={{ opacity: 0, y: 20 }}
                   animate={isVisible ? { opacity: 1, y: 0 } : {}}
                   transition={{ duration: 0.4, delay: 0.4 + index * 0.1 }}
-                  className={`relative z-10 bg-card rounded-xl p-5 shadow-md border transition-colors ${
-                    achievement.highlight
+                  className={`relative z-10 bg-card rounded-xl p-5 shadow-md border transition-colors ${achievement.highlight
                       ? "border-primary/30 hover:border-primary/60"
                       : "border-border hover:border-primary/50"
-                  }`}
+                    }`}
                   whileHover={{ y: -2 }}
                 >
                   <div className="flex items-start gap-4 cursor-pointer" onClick={() => toggleAchievementExpand(index)}>
                     <div
-                      className={`w-10 h-10 rounded-lg flex items-center justify-center shrink-0 ${
-                        achievement.highlight ? "bg-primary/20" : "bg-secondary"
-                      }`}
+                      className={`w-10 h-10 rounded-lg flex items-center justify-center shrink-0 ${achievement.highlight ? "bg-primary/20" : "bg-secondary"
+                        }`}
                     >
                       <achievement.icon
-                        className={`h-5 w-5 ${
-                          achievement.highlight ? "text-primary" : "text-muted-foreground"
-                        }`}
+                        className={`h-5 w-5 ${achievement.highlight ? "text-primary" : "text-muted-foreground"
+                          }`}
                       />
                     </div>
                     <div className="flex-1">
                       <div className="flex items-center justify-between gap-4">
                         <div>
-                          <h4 className="font-semibold text-foreground mb-1">
+                          <h4 className="text-lg font-semibold text-foreground mb-1">
                             {achievement.title}
                           </h4>
                           <p className="text-xs text-muted-foreground">{achievement.year}</p>
@@ -447,26 +445,24 @@ const Education = () => {
                 {photoCards.map((item) => (
                   <DraggableCardBody
                     key={item.title}
-                    className={`${item.className} ${
-                      item.orientation === "landscape"
+                    className={`${item.className} ${item.orientation === "landscape"
                         ? "w-80 md:w-[22rem]"
                         : item.orientation === "portrait"
                           ? "w-56 md:w-64"
                           : "w-72 md:w-80"
-                    }`}
+                      }`}
                   >
                     <a href={item.image} target="_blank" rel="noopener noreferrer" className="block">
                       <img
                         src={item.image}
                         alt={item.title}
                         onLoad={handlePhotoLoad(item.image)}
-                        className={`pointer-events-none relative z-10 mx-auto block max-w-full h-auto w-auto rounded-xl object-contain object-center ${
-                          item.orientation === "landscape"
+                        className={`pointer-events-none relative z-10 mx-auto block max-w-full h-auto w-auto rounded-xl object-contain object-center ${item.orientation === "landscape"
                             ? "max-h-80 md:max-h-[22rem]"
                             : item.orientation === "portrait"
                               ? "max-h-60 md:max-h-72"
                               : "max-h-72 md:max-h-80"
-                        }`}
+                          }`}
                         loading="lazy"
                       />
                     </a>

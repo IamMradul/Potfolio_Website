@@ -70,14 +70,14 @@ const Skills = () => {
   const { ref, isVisible } = useScrollAnimation();
 
   return (
-    <section id="skills" className="py-12 md:py-24">
+    <section id="skills" className="py-12 md:py-20">
       <div className="section-container">
         <motion.div
           ref={ref}
           initial={{ opacity: 0, y: 50 }}
           animate={isVisible ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6 }}
-          className="text-center mb-16"
+          className="text-center mb-8"
         >
           <h2 className="section-title">Skills & Technologies</h2>
           <p className="section-subtitle">
@@ -94,25 +94,25 @@ const Skills = () => {
               transition={{ duration: 0.5, delay: 0.1 + index * 0.1 }}
               className={`relative z-10 bg-card rounded-xl p-6 shadow-md hover:shadow-lg transition-all duration-300 border ${
                 category.highlight
-                  ? "border-cyber/30"
+                  ? "border-primary/30"
                   : "border-border"
               }`}
             >
               <div className="flex items-center gap-3 mb-4">
                 <div
                   className={`w-10 h-10 rounded-lg flex items-center justify-center ${
-                    category.highlight ? "bg-cyber/20" : "bg-primary/10"
+                    category.highlight ? "bg-primary/20" : "bg-primary/10"
                   }`}
                 >
                   <category.icon
                     className={`h-5 w-5 ${
-                      category.highlight ? "text-cyber" : "text-primary"
+                      category.highlight ? "text-primary" : "text-primary"
                     }`}
                   />
                 </div>
-                <h3 className="font-semibold text-foreground">{category.title}</h3>
+                <h3 className="text-lg font-semibold text-foreground">{category.title}</h3>
                 {category.highlight && (
-                  <span className="cyber-badge text-xs">Featured</span>
+                  <span className="inline-flex items-center px-2 py-1 rounded-full text-xs font-medium bg-primary/10 text-primary">Featured</span>
                 )}
               </div>
 
@@ -123,7 +123,7 @@ const Skills = () => {
                     variant={category.highlight ? "default" : "secondary"}
                     className={`text-xs ${
                       category.highlight
-                        ? "bg-cyber/10 text-cyber hover:bg-cyber/20 border border-cyber/20"
+                        ? "bg-primary/10 text-primary hover:bg-primary/20 border border-primary/20"
                         : ""
                     }`}
                   >

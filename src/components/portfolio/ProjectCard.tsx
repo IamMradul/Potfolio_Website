@@ -30,7 +30,7 @@ const ProjectCard = ({
       >
         <CardItem
           translateZ={50}
-          className={`${compact ? "text-lg" : "text-xl"} font-bold text-foreground`}
+          className={`${compact ? "text-base" : "text-lg"} font-bold text-foreground`}
         >
           {title}
         </CardItem>

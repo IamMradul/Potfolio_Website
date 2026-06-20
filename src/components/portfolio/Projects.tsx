@@ -1,19 +1,21 @@
-import { motion } from "framer-motion";
+import { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 import ProjectCard from "./ProjectCard";
-import { Shield, Brain, ShoppingCart, Newspaper, Bot, PawPrintIcon } from "lucide-react";
+import { Shield, Brain, ShoppingCart, Newspaper, Bot, PawPrintIcon, FileText, GraduationCap, Code2, Vote, ShieldCheck, ScanText } from "lucide-react";
+import { Button } from "@/components/ui/button";
 
 const projects = [
   {
-  title: "Aniwoo – Smart Pet Care Platform",
-  description: "Built a full-stack pet care web application offering AI-powered disease detection, veterinary services, a pet nutrition shop, grooming products, and a local pet mating connect feature. The AI scanner analyzes pet photos in seconds to surface potential health concerns with vet-friendly summaries.",
-  icon: PawPrintIcon, 
-  image: "/images/aniwoo.jpg",
-  technologies: ["Next.js", "TypeScript", "Supabase", "Tailwind CSS", "AI/ML", "Vercel"],
-  category: "Full Stack Web Development",
-  github: "https://github.com/IamMradul/aniwoo",
-  live: "https://aniwoo.vercel.app/",
-  featured: true,
+    title: "Aniwoo – Smart Pet Care Platform",
+    description: "Built a full-stack pet care web application offering AI-powered disease detection, veterinary services, a pet nutrition shop, grooming products, and a local pet mating connect feature. The AI scanner analyzes pet photos in seconds to surface potential health concerns with vet-friendly summaries.",
+    icon: PawPrintIcon,
+    image: "/images/aniwoo.jpg",
+    technologies: ["Next.js", "TypeScript", "Supabase", "Tailwind CSS", "AI/ML", "Vercel"],
+    category: "Full Stack Web Development",
+    github: "https://github.com/IamMradul/aniwoo",
+    live: "https://aniwoo.vercel.app/",
+    featured: true,
   },
   {
     title: "Gesture-Based CAPTCHA System",
@@ -61,7 +63,7 @@ const projects = [
     category: "Automation Systems",
     github: "https://github.com/IamMradul/Ira-The-Anti-Distraction-Bot",
     live: "",
-    featured: true,
+    featured: false,
   },
   {
     title: "News App",
@@ -73,22 +75,95 @@ const projects = [
     category: "Frontend Engineering",
     github: "https://github.com/IamMradul/News-app",
     live: "https://newsly-global.vercel.app/",
+    featured: false,
+  },
+  {
+    title: "Cloud Document Sharing Platform",
+    description:
+      "Developed a secure cloud-based document management and sharing platform with authentication, file uploads, access control, and real-time document collaboration. Focused on scalable architecture, secure storage, and seamless user experience.",
+    icon: FileText,
+    image: "/images/cloud-docs.png",
+    technologies: ["Next.js", "TypeScript", "Supabase", "Storage", "Authentication"],
+    category: "Full-Stack Engineering",
+    github: "https://github.com/IamMradul/Cloud-Document-Sharing-Platform",
+    live: "",
     featured: true,
+  },
+  {
+    title: "StudyNX",
+    description:
+      "Built a modern educational platform designed to enhance student learning through structured resources, progress tracking, and an intuitive user interface. Implemented responsive design and scalable frontend architecture.",
+    icon: GraduationCap,
+    image: "/images/studynx.png",
+    technologies: ["Next.js", "TypeScript", "Tailwind CSS", "Supabase"],
+    category: "EdTech Platform",
+    github: "https://github.com/IamMradul/StudyNX",
+    live: "",
+    featured: false,
+  },
+  {
+    title: "CP Companion",
+    description:
+      "Created a competitive programming assistant to help users organize coding challenges, track problem-solving progress, manage practice sessions, and improve interview preparation efficiency.",
+    icon: Code2,
+    image: "/images/cp-companion.png",
+    technologies: ["React", "TypeScript", "DSA", "Analytics"],
+    category: "Developer Tools",
+    github: "https://github.com/IamMradul/CP-Companion",
+    live: "",
+    featured: false,
+  },
+  {
+    title: "VoteWise",
+    description:
+      "Developed a civic-tech platform aimed at increasing voter awareness through candidate information, issue tracking, election insights, and data-driven decision support. Designed for accessibility and public engagement.",
+    icon: Vote,
+    image: "/images/votewise.png",
+    technologies: ["Next.js", "TypeScript", "Supabase", "Data Visualization"],
+    category: "Civic Technology",
+    github: "https://github.com/IamMradul/VoteWise",
+    live: "",
+    featured: false,
+  },
+  {
+    title: "EduGuard",
+    description:
+      "Built an education-focused platform designed to improve digital safety, awareness, and accessibility for students through modern web technologies and user-centric design.",
+    icon: ShieldCheck,
+    image: "/images/eduguard.png",
+    technologies: ["JavaScript", "Web Development", "Education Technology"],
+    category: "EdTech Solution",
+    github: "https://github.com/IamMradul/Eduguard",
+    live: "",
+    featured: false,
+  },
+  {
+    title: "Text Extractor",
+    description:
+      "Developed an OCR-powered application capable of extracting and processing text from images using computer vision techniques. Improved document digitization workflows and text accessibility.",
+    icon: ScanText,
+    image: "/images/text-extractor.png",
+    technologies: ["Python", "OpenCV", "Tesseract OCR", "Computer Vision"],
+    category: "Computer Vision",
+    github: "https://github.com/IamMradul/Text_Extractor",
+    live: "",
+    featured: false,
   },
 ];
 
 const Projects = () => {
   const { ref, isVisible } = useScrollAnimation();
+  const [showMore, setShowMore] = useState(false);
 
   return (
-    <section id="projects" className="py-12 md:py-24 bg-secondary/30">
+    <section id="projects" className="py-12 md:py-20 bg-secondary/30">
       <div className="section-container">
         <motion.div
           ref={ref}
           initial={{ opacity: 0, y: 50 }}
           animate={isVisible ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6 }}
-          className="text-center mb-12 md:mb-16"
+          className="text-center mb-6 md:mb-8"
         >
           <h2 className="section-title">Featured Projects</h2>
           <p className="section-subtitle">
@@ -117,25 +192,48 @@ const Projects = () => {
           ))}
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          {projects.filter((p) => !p.featured).map((project, index) => (
-            <motion.div
-              key={project.title}
-              initial={{ opacity: 0, y: 30 }}
-              animate={isVisible ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.5, delay: 0.5 + index * 0.1 }}
-            >
-              <ProjectCard
-                title={project.title}
-                description={project.description}
-                image={project.image}
-                technologies={project.technologies}
-                githubLink={project.github}
-                liveLink={project.live}
-              />
-            </motion.div>
-          ))}
+        <div className="flex justify-center mt-8">
+          <Button 
+            variant="outline" 
+            size="lg" 
+            onClick={() => setShowMore(!showMore)}
+            className="min-w-[150px]"
+          >
+            {showMore ? "Show Less" : "Show More"}
+          </Button>
         </div>
+
+        <AnimatePresence>
+          {showMore && (
+            <motion.div 
+              initial={{ opacity: 0, height: 0 }}
+              animate={{ opacity: 1, height: "auto" }}
+              exit={{ opacity: 0, height: 0 }}
+              transition={{ duration: 0.5 }}
+              className="mt-12 overflow-hidden"
+            >
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6 overflow-y-auto max-h-[500px] p-2 custom-scrollbar pr-4">
+              {projects.filter((p) => !p.featured).map((project, index) => (
+                <motion.div
+                  key={project.title}
+                  initial={{ opacity: 0, y: 30 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.5, delay: index * 0.1 }}
+                >
+                  <ProjectCard
+                    title={project.title}
+                    description={project.description}
+                    image={project.image}
+                    technologies={project.technologies}
+                    githubLink={project.github}
+                    liveLink={project.live}
+                  />
+                </motion.div>
+              ))}
+              </div>
+            </motion.div>
+          )}
+        </AnimatePresence>
       </div>
     </section>
   );

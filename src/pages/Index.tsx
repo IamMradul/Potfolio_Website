@@ -1,5 +1,4 @@
 import Hero from "@/components/portfolio/Hero";
-import About from "@/components/portfolio/About";
 import Experience from "@/components/portfolio/Experience";
 import Projects from "@/components/portfolio/Projects";
 import Skills from "@/components/portfolio/Skills";
@@ -8,15 +7,15 @@ import Publications from "@/components/portfolio/Publications";
 import Extracurriculars from "@/components/portfolio/Extracurriculars";
 import Contact from "@/components/portfolio/Contact";
 import Footer from "@/components/portfolio/Footer";
-import DockNavigation from "@/components/portfolio/DockNavigation";
+import Navbar from "@/components/portfolio/Navbar";
 import ThemeToggle from "@/components/portfolio/ThemeToggle";
 
 const Index = () => {
   return (
     <main className="relative">
+      <Navbar />
       <ThemeToggle />
       <Hero />
-      <About />
       <Experience />
       <Projects />
       <Skills />
@@ -25,7 +24,6 @@ const Index = () => {
       <Extracurriculars />
       <Contact />
       <Footer />
-      <DockNavigation />
     </main>
   );
 };

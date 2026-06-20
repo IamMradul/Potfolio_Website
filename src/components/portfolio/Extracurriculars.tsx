@@ -46,14 +46,14 @@ const Extracurriculars = () => {
   const { ref, isVisible } = useScrollAnimation();
 
   return (
-    <section id="extracurriculars" className="py-12 md:py-24 bg-secondary/30">
+    <section id="extracurriculars" className="py-12 md:py-20 bg-secondary/30">
       <div className="section-container">
         <motion.div
           ref={ref}
           initial={{ opacity: 0, y: 50 }}
           animate={isVisible ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6 }}
-          className="text-center mb-16"
+          className="text-center mb-8"
         >
           <h2 className="section-title">Extracurriculars & Interests</h2>
           <p className="section-subtitle">
@@ -84,7 +84,7 @@ const Extracurriculars = () => {
                     />
                   </div>
                   <div>
-                    <h3 className="font-semibold text-foreground mb-2">
+                    <h3 className="text-lg font-semibold text-foreground mb-2">
                       {activity.title}
                     </h3>
                     <p className="text-sm text-muted-foreground">

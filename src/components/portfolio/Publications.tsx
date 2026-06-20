@@ -28,14 +28,14 @@ const Publications = () => {
   const { ref, isVisible } = useScrollAnimation();
 
   return (
-    <section id="publications" className="py-12 md:py-24">
+    <section id="publications" className="py-12 md:py-20">
       <div className="section-container">
         <motion.div
           ref={ref}
           initial={{ opacity: 0, y: 50 }}
           animate={isVisible ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6 }}
-          className="text-center mb-16"
+          className="text-center mb-8"
         >
           <h2 className="section-title">Publications</h2>
           <p className="section-subtitle">
@@ -62,7 +62,7 @@ const Publications = () => {
                     {pub.type}
                   </span>
                   <div className="flex items-center gap-2">
-                    <span className="inline-block px-2 py-0.5 bg-cyber/10 text-cyber text-xs rounded-full">
+                    <span className="inline-block px-2 py-0.5 bg-primary/10 text-primary text-xs rounded-full">
                       {pub.status}
                     </span>
                   </div>

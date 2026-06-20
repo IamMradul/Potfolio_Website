@@ -78,14 +78,14 @@ const Contact = () => {
   };
 
   return (
-    <section id="contact" className="py-12 md:py-24">
+    <section id="contact" className="py-12 md:py-20">
       <div className="section-container">
         <motion.div
           ref={ref}
           initial={{ opacity: 0, y: 50 }}
           animate={isVisible ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6 }}
-          className="text-center mb-12 md:mb-16"
+          className="text-center mb-6 md:mb-8"
         >
           <h2 className="section-title">Get In Touch</h2>
           <p className="section-subtitle">
