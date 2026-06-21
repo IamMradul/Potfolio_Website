@@ -110,7 +110,7 @@ const Hero = () => {
                 <CardItem translateZ="30" className="w-full flex justify-between items-center mb-6 pb-4 border-b border-border/50">
                   <div className="font-bold text-lg text-primary font-mono tracking-widest flex items-center gap-2">
                     <span className="w-2 h-2 rounded-full bg-primary animate-pulse"></span>
-                    ID: AXZCMG
+                    ID: APLMG
                   </div>
                   <div className="text-[10px] font-bold px-2.5 py-1 bg-primary/20 text-primary rounded-full uppercase tracking-wider">
                     Official

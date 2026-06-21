@@ -1,9 +1,10 @@
-import { useState } from "react";
+import { useState, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 import ProjectCard from "./ProjectCard";
 import { Shield, Brain, ShoppingCart, Newspaper, Bot, PawPrintIcon, FileText, GraduationCap, Code2, Vote, ShieldCheck, ScanText } from "lucide-react";
-import { Button } from "@/components/ui/button";
+import { CardBody, CardContainer, CardItem } from "@/components/ui/3d-card";
+import { HoverBorderGradient } from "@/components/ui/hover-border-gradient";
 
 const projects = [
   {
@@ -82,7 +83,7 @@ const projects = [
     description:
       "Developed a secure cloud-based document management and sharing platform with authentication, file uploads, access control, and real-time document collaboration. Focused on scalable architecture, secure storage, and seamless user experience.",
     icon: FileText,
-    image: "/images/cloud-docs.png",
+    image: "/images/cloudsharing.png",
     technologies: ["Next.js", "TypeScript", "Supabase", "Storage", "Authentication"],
     category: "Full-Stack Engineering",
     github: "https://github.com/IamMradul/Cloud-Document-Sharing-Platform",
@@ -94,11 +95,11 @@ const projects = [
     description:
       "Built a modern educational platform designed to enhance student learning through structured resources, progress tracking, and an intuitive user interface. Implemented responsive design and scalable frontend architecture.",
     icon: GraduationCap,
-    image: "/images/studynx.png",
+    image: "/images/StudyNX.png",
     technologies: ["Next.js", "TypeScript", "Tailwind CSS", "Supabase"],
     category: "EdTech Platform",
     github: "https://github.com/IamMradul/StudyNX",
-    live: "",
+    live: "https://studynx.vercel.app/",
     featured: false,
   },
   {
@@ -110,7 +111,7 @@ const projects = [
     technologies: ["React", "TypeScript", "DSA", "Analytics"],
     category: "Developer Tools",
     github: "https://github.com/IamMradul/CP-Companion",
-    live: "",
+    live: "https://github.com/IamMradul/CP-Companion/releases",
     featured: false,
   },
   {
@@ -134,7 +135,7 @@ const projects = [
     technologies: ["JavaScript", "Web Development", "Education Technology"],
     category: "EdTech Solution",
     github: "https://github.com/IamMradul/Eduguard",
-    live: "",
+    live: "https://eduguard-nu.vercel.app/",
     featured: false,
   },
   {
@@ -142,7 +143,7 @@ const projects = [
     description:
       "Developed an OCR-powered application capable of extracting and processing text from images using computer vision techniques. Improved document digitization workflows and text accessibility.",
     icon: ScanText,
-    image: "/images/text-extractor.png",
+    image: "/images/TextExtractor.png",
     technologies: ["Python", "OpenCV", "Tesseract OCR", "Computer Vision"],
     category: "Computer Vision",
     github: "https://github.com/IamMradul/Text_Extractor",
@@ -154,6 +155,17 @@ const projects = [
 const Projects = () => {
   const { ref, isVisible } = useScrollAnimation();
   const [showMore, setShowMore] = useState(false);
+  const carouselRef = useRef<HTMLDivElement>(null);
+
+  const handleToggleShowMore = () => {
+    const nextState = !showMore;
+    setShowMore(nextState);
+    if (nextState) {
+      setTimeout(() => {
+        carouselRef.current?.scrollIntoView({ behavior: "smooth", block: "center" });
+      }, 400);
+    }
+  };
 
   return (
     <section id="projects" className="py-12 md:py-20 bg-secondary/30">
@@ -193,49 +205,71 @@ const Projects = () => {
         </div>
 
         <div className="flex justify-center mt-8">
-          <Button 
-            variant="outline" 
-            size="lg" 
-            onClick={() => setShowMore(!showMore)}
-            className="min-w-[150px]"
+          <HoverBorderGradient
+            containerClassName="rounded-full"
+            as="button"
+            className="dark:bg-black bg-white text-black dark:text-white flex items-center space-x-2"
+            onClick={handleToggleShowMore}
           >
-            {showMore ? "Show Less" : "Show More"}
-          </Button>
+            <AceternityLogo />
+            <span>{showMore ? "Show Less" : "Show More"}</span>
+          </HoverBorderGradient>
         </div>
 
         <AnimatePresence>
           {showMore && (
-            <motion.div 
+            <motion.div
               initial={{ opacity: 0, height: 0 }}
               animate={{ opacity: 1, height: "auto" }}
               exit={{ opacity: 0, height: 0 }}
               transition={{ duration: 0.5 }}
               className="mt-12 overflow-hidden"
             >
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6 overflow-y-auto max-h-[500px] p-2 custom-scrollbar pr-4">
-              {projects.filter((p) => !p.featured).map((project, index) => (
-                <motion.div
-                  key={project.title}
-                  initial={{ opacity: 0, y: 30 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.5, delay: index * 0.1 }}
-                >
-                  <ProjectCard
-                    title={project.title}
-                    description={project.description}
-                    image={project.image}
-                    technologies={project.technologies}
-                    githubLink={project.github}
-                    liveLink={project.live}
-                  />
-                </motion.div>
-              ))}
+              <div ref={carouselRef} className="grid grid-cols-1 md:grid-cols-2 gap-6 overflow-y-auto max-h-[500px] p-2 custom-scrollbar pr-4">
+                {projects.filter((p) => !p.featured).map((project, index) => (
+                  <motion.div
+                    key={project.title}
+                    initial={{ opacity: 0, y: 30 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.5, delay: index * 0.1 }}
+                  >
+                    <ProjectCard
+                      title={project.title}
+                      description={project.description}
+                      image={project.image}
+                      technologies={project.technologies}
+                      githubLink={project.github}
+                      liveLink={project.live}
+                    />
+                  </motion.div>
+                ))}
               </div>
             </motion.div>
           )}
         </AnimatePresence>
       </div>
     </section>
+  );
+};
+
+const AceternityLogo = () => {
+  return (
+    <svg
+      width="66"
+      height="65"
+      viewBox="0 0 66 65"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      className="h-4 w-4 text-black dark:text-white"
+    >
+      <path
+        d="M8 8.05571C8 8.05571 54.9009 18.1782 57.8687 30.062C60.8365 41.9458 9.05432 57.4696 9.05432 57.4696"
+        stroke="currentColor"
+        strokeWidth="15"
+        strokeMiterlimit="3.86874"
+        strokeLinecap="round"
+      />
+    </svg>
   );
 };
 
