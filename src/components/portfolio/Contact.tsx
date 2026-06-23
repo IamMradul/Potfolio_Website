@@ -12,7 +12,6 @@ const Contact = () => {
   const [formData, setFormData] = useState({
     name: "",
     email: "",
-    subject: "",
     message: "",
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -37,10 +36,9 @@ const Contact = () => {
         body: JSON.stringify({
           name: formData.name,
           email: formData.email,
-          subject: formData.subject || "Portfolio Contact",
           message: formData.message,
           _template: "table",
-          _subject: formData.subject || "Portfolio Contact",
+          _subject: "Portfolio Contact",
         }),
       });
 
@@ -51,7 +49,6 @@ const Contact = () => {
       setFormData({
         name: "",
         email: "",
-        subject: "",
         message: "",
       });
       setSubmitMessage({
@@ -193,16 +190,7 @@ const Contact = () => {
                 </div>
               </div>
 
-              <div className="space-y-2">
-                <Label htmlFor="subject">Subject</Label>
-                <Input
-                  id="subject"
-                  name="subject"
-                  placeholder="What's this about?"
-                  value={formData.subject}
-                  onChange={handleChange}
-                />
-              </div>
+              {/* Subject removed to streamline conversion */}
 
               <div className="space-y-2">
                 <Label htmlFor="message">Message</Label>

@@ -18,7 +18,7 @@ const Hero = () => {
       <div className="absolute inset-0 z-0 bg-[url('/grid.svg')] bg-center [mask-image:linear-gradient(180deg,white,rgba(255,255,255,0))] opacity-20" />
 
       <div className="container mx-auto px-6 md:px-12 relative z-10 h-full flex flex-col justify-center">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center min-h-[80vh] max-w-6xl mx-auto">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center min-h-[70vh] py-12 lg:py-0 max-w-6xl mx-auto">
 
           {/* Text Content */}
           <motion.div
@@ -27,7 +27,7 @@ const Hero = () => {
             transition={{ duration: 0.8, ease: "easeOut" }}
             className="text-center lg:text-left flex flex-col justify-center pt-12 lg:pt-0"
           >
-            {/* Top Avatar Group (Optional, mimicking "120+ Satisfied Clients" style) */}
+            {/* Top Avatar Group */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
@@ -46,50 +46,46 @@ const Hero = () => {
                 </div>
               </div>
               <div className="text-sm font-medium text-muted-foreground flex flex-col items-start">
-                <span className="text-foreground font-bold">Top Rated</span>
+                <span className="text-foreground font-bold text-base">Top Rated</span>
                 <span>Developer</span>
               </div>
             </motion.div>
 
             {/* Main Headline */}
-            <motion.div
+            <motion.h1
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.3 }}
-              className="mb-6 font-black uppercase leading-[1.1] tracking-tight"
+              className="mb-6 font-black leading-[1.1] tracking-tight text-4xl sm:text-5xl lg:text-6xl text-foreground"
             >
-              <div className="text-5xl sm:text-6xl md:text-7xl lg:text-[5rem] xl:text-[6rem] text-foreground">
-                IT'S ME
-              </div>
-              <div className="text-5xl sm:text-6xl md:text-7xl lg:text-[5rem] xl:text-[6rem] text-primary">
-                MRADUL GUPTA
-              </div>
-            </motion.div>
+              Building <span className="text-primary">scalable software</span> <br className="hidden lg:block" />
+              for <span className="text-primary">innovative teams.</span>
+            </motion.h1>
 
             {/* Subtitle */}
             <motion.p
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.4 }}
+              transition={{ delay: 0.3 }}
               className="text-muted-foreground text-base sm:text-lg lg:text-xl mb-8 max-w-xl mx-auto lg:mx-0 leading-relaxed font-medium"
             >
-              CSE student specializing in backend systems and AI/ML — ranked among the top competitive coders at my university and passionate about building software that's secure, fast, and built to last.
+              I'm Mradul Gupta, a CSE student specializing in backend systems and AI/ML — building software that's secure, fast, and built to last.
             </motion.p>
 
             {/* Action Buttons */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.5 }}
+              transition={{ delay: 0.4 }}
               className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4"
             >
-              <Button size="lg" onClick={scrollToContact} className="rounded-2xl px-8 py-6 shadow-xl shadow-primary/25 bg-primary hover:bg-primary/90 text-primary-foreground text-lg font-semibold gap-3 w-full sm:w-auto">
-                <Calendar className="h-5 w-5 text-primary-foreground" />
-                Contact Me
+              <Button size="lg" onClick={scrollToContact} className="rounded-2xl px-10 py-7 shadow-xl shadow-primary/25 bg-primary hover:bg-primary/90 text-primary-foreground text-xl font-bold gap-3 w-full sm:w-auto">
+                <Mail className="h-6 w-6 text-primary-foreground" />
+                Hire Me
               </Button>
-              <Button size="lg" variant="outline" asChild className="rounded-2xl px-8 py-6 border-primary/50 hover:border-primary text-foreground bg-transparent hover:bg-primary/10 gap-2 w-full sm:w-auto">
+              <Button size="lg" variant="ghost" asChild className="group rounded-2xl px-8 py-6 text-muted-foreground hover:text-foreground hover:bg-transparent w-full sm:w-auto transition-all duration-300 hover:-translate-y-1">
                 <a href="/Resume_Mradul_Gupta.pdf" download>
-                  <Download className="h-5 w-5 text-primary" />
+                  <Download className="h-5 w-5 mr-2 transition-transform duration-300 group-hover:translate-y-1" />
                   Download Resume
                 </a>
               </Button>
